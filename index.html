@@ -7,7 +7,6 @@
     <title>nlekkerman's Portfolio</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
     <style>
         /* Set body background to black */
         body {
@@ -20,7 +19,6 @@
             background-color: rgba(0, 0, 0, 0.5); /* Black with alpha transparency */
             color: white;
         }
-
 
         /* Links inside cards with hover effect */
         a {
@@ -42,39 +40,69 @@
             color: white;
         }
 
-        header h1,
-        header p {
-            margin: 0;
-        }
-
-        /* About Me Section moved under navbar */
-        #about-me {
-            margin-top: 20px;
-        }
-
-        /* Tech stack badges */
-        .tech-stack .badge {
-            background-color: #444;
-            margin-right: 5px;
-            margin-bottom: 5px;
-        }
-
-        /* Projects Section Styles */
+        /* Project styling */
         .project {
-            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
         }
 
+        /* Landscape orientation: set width to 100% and a fixed height */
         .project img {
             width: 100%;
-            height: auto;
-            max-width: 100%;
+            height: 200px; /* Fixed height for consistency */
+            object-fit: cover; /* Ensure landscape image fills the space */
         }
 
-        /* Adjust for smaller screens */
-        @media (max-width: 767px) {
-            #about-me {
-                margin-top: 20px;
-            }
+        .project:hover .overlay {
+            opacity: 1;
+        }
+
+        /* Overlay styling */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            display: flex;
+            flex-direction: row; /* Split into two columns */
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            gap: 10px;
+        }
+
+        .overlay .video-container,
+        .overlay .description-container {
+            flex: 1; /* Equal space for both containers */
+            max-width: 50%; /* Restrict each container to half the overlay width */
+            height: 100%;
+        }
+
+        .overlay iframe {
+            width: 100%; /* Fit the iframe within the video container */
+            height: 100%; /* Maintain aspect ratio */
+            max-height: 90%; /* Prevent it from overflowing */
+        }
+
+        .overlay .description-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .overlay h3 {
+            margin-bottom: 10px;
+        }
+
+        .overlay p {
+            margin-bottom: 15px;
         }
     </style>
 </head>
@@ -102,126 +130,101 @@
         </div>
     </nav>
 
-    <!-- Header Section with Background Image -->
+    <!-- Header Section -->
     <header>
         <h1>Welcome to nlekkerman's Portfolio</h1>
         <p>Showcasing Projects from the Code Institute Course</p>
     </header>
-    <div class="container-fluid" id="about-me">
-        <div class="row">
-            <!-- About Me Section -->
-            <div class="col-lg-6 col-md-12 mb-4">
-                <div class="card" style="background-color: rgba(0, 0, 0, 0.5); color: white;">
-                    <div class="card-body">
-                        <h2>About Me</h2>
-                        <p><strong>Name:</strong> Nikola Simic</p>
-                        <p><strong>Profession:</strong> Web Developer | Full Stack Developer</p>
-                        <p>Hi, I'm Nikola Simic, a passionate web developer with a strong background in both front-end and back-end technologies. I love creating dynamic and responsive websites, and I am always eager to learn new technologies to improve my skills. My main focus is on building scalable web applications and working with frameworks like Django, React, and Bootstrap. I enjoy collaborating on projects and continuously improving the user experience and functionality.</p>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Skills Section -->
-            <div class="col-lg-6 col-md-12 mb-4">
-                <div class="card" style="background-color: rgba(0, 0, 0, 0.5); color: white;">
-                    <div class="card-body">
-                        <h2>Skills</h2>
-                        <ul>
-                            <li>HTML, CSS, JavaScript</li>
-                            <li>React, Django, Flask</li>
-                            <li>MySQL, PostgreSQL, MongoDB</li>
-                            <li>Version Control (Git, GitHub)</li>
-                            <li>Responsive Web Design</li>
-                            <li>APIs (RESTful, GraphQL)</li>
-                            <li>Python, Node.js</li>
-                            <li>Agile Development</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
 
-    <!-- Projects Section -->
-    <div class="container" id="projects">
-        <!-- Killarney Wild -->
-        <div class="project card mb-4">
-            <img src="assets/images/responsive-img-portofolio-pp1.png" alt="Killarney Wild Project Image" class="card-img-top">
-            <div class="card-body">
-                <h3><a href="https://github.com/nlekkerman/killarney-wild" target="_blank">Killarney Wild</a></h3>
-                <p class="card-text">Explore the untamed beauty of Killarney National Park, Ireland, with Killarney Wild. Immerse yourself in captivating imagery, discover the diverse wildlife, and stay informed with essential information for a seamless experience.</p>
-                <div class="tech-stack">
-                    <span class="badge badge-secondary">HTML</span>
-                    <span class="badge badge-secondary">CSS</span>
-                    <span class="badge badge-secondary">JavaScript</span>
-                    <span class="badge badge-secondary">GitHub Pages</span>
-                </div>
-            </div>
-        </div>
+  <!-- Projects Section -->
+  <div class="container" id="projects">
+      <div class="row">
+          <!-- Killarney Wild -->
+          <div class="col-12 col-md-6 col-lg-4 col-xl-2 mb-4">
+              <div class="project card">
+                  <img src="assets/images/killarney-wild.png" alt="Killarney Wild Project Image" class="card-img-top">
+                  <div class="overlay">
+                      <div class="video-container">
+                          <iframe src="https://www.youtube.com/embed/example1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                          <p class="video-title">DEMO</p>
+                      </div>
+                      <div class="description-container">
+                          <h3>Killarney Wild</h3>
+                          <p>Explore the untamed beauty of Killarney National Park, Ireland. Immerse yourself in captivating imagery and discover the diverse wildlife.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
-        <!-- Infinite Guess -->
-        <div class="project card mb-4">
-            <img src="assets/images/responsive-img-portofolio-pp2.png" alt="Infinite Guess Project Image" class="card-img-top">
-            <div class="card-body">
-                <h3><a href="https://github.com/nlekkerman/infinite-guess" target="_blank">Infinite Guess</a></h3>
-                <p class="card-text">A thrilling number-guessing game that tests your intuition and strategy. Players predict if the next number in the sequence is higher or lower. The game includes bonus rounds, leaderboards, and a challenging mystery number feature.</p>
-                <div class="tech-stack">
-                    <span class="badge badge-secondary">HTML</span>
-                    <span class="badge badge-secondary">CSS</span>
-                    <span class="badge badge-secondary">JavaScript</span>
-                    <span class="badge badge-secondary">GitHub Pages</span>
-                </div>
-            </div>
-        </div>
+          <!-- Infinite Guess -->
+          <div class="col-12 col-md-6 col-lg-4 col-xl-2 mb-4">
+              <div class="project card">
+                  <img src="assets/images/infinite-guess.png" alt="Infinite Guess Project Image" class="card-img-top">
+                  <div class="overlay">
+                      <div class="video-container">
+                          <iframe src="https://www.youtube.com/embed/example2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                          <p class="video-title">DEMO</p>
+                      </div>
+                      <div class="description-container">
+                          <h3>Infinite Guess</h3>
+                          <p>A thrilling number-guessing game that tests your intuition and strategy. Includes bonus rounds and a challenging mystery number feature.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
-        <!-- Save Waldo -->
-        <div class="project card mb-4">
-            <img src="assets/images/responsive-img-portofolio-pp3.png" alt="Save Waldo Project Image" class="card-img-top">
-            <div class="card-body">
-                <h3><a href="https://github.com/nlekkerman/save-waldo" target="_blank">Save Waldo</a></h3>
-                <p class="card-text">An interactive text-based adventure game where you solve puzzles and crack riddles to rescue Waldo. The game includes logic puzzles, riddles, and various interactive levels to challenge critical thinking and problem-solving skills.</p>
-                <div class="tech-stack">
-                    <span class="badge badge-secondary">Python</span>
-                    <span class="badge badge-secondary">Text Adventure</span>
-                </div>
-            </div>
-        </div>
+          <!-- Save Waldo -->
+          <div class="col-12 col-md-6 col-lg-4 col-xl-2 mb-4">
+              <div class="project card">
+                  <img src="assets/images/save-waldo.jpg" alt="Save Waldo Project Image" class="card-img-top">
+                  <div class="overlay">
+                      <div class="video-container">
+                          <iframe src="https://www.youtube.com/embed/example3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                          <p class="video-title">DEMO</p>
+                      </div>
+                      <div class="description-container">
+                          <h3>Save Waldo</h3>
+                          <p>An interactive text-based adventure game where you solve puzzles and crack riddles to rescue Waldo.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
-        <!-- Hotel Wantit -->
-        <div class="project card mb-4">
-            <img src="assets/images/responsive-img-portofolio-pp4.png" alt="Hotel Wantit Project Image" class="card-img-top">
-            <div class="card-body">
-                <h3><a href="https://github.com/nlekkerman/hotel-wantit" target="_blank">Hotel Wantit</a></h3>
-                <p class="card-text">Welcome to Hotel Wantit! A web platform allowing guests to book hotel rooms and restaurant tables. The site features an interactive chat function for quick communication, and users can explore a smooth booking experience for all hotel services.</p>
-                <div class="tech-stack">
-                    <span class="badge badge-secondary">Django</span>
-                    <span class="badge badge-secondary">Bootstrap</span>
-                    <span class="badge badge-secondary">jQuery</span>
-                    <span class="badge badge-secondary">Font Awesome</span>
-                    <span class="badge badge-secondary">Animate.css</span>
-                </div>
-            </div>
-        </div>
+          <!-- Hotel Wantit -->
+          <div class="col-12 col-md-6 col-lg-4 col-xl-2 mb-4">
+              <div class="project card">
+                  <img src="assets/images/hotel-wantit-home.png" alt="Hotel Wantit Project Image" class="card-img-top">
+                  <div class="overlay">
+                      <div class="video-container">
+                          <iframe src="https://www.youtube.com/embed/example4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                          <p class="video-title">DEMO</p>
+                      </div>
+                      <div class="description-container">
+                          <h3>Hotel Wantit</h3>
+                          <p>A platform for booking hotel rooms and tables with an interactive chat feature for seamless communication.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
-        <!-- Future Flowers Shop -->
-        <div class="project card mb-4">
-            <img src="assets/images/responsive-img-portofolio-pp5.png" alt="Future Flowers Shop Project Image" class="card-img-top">
-            <div class="card-body">
-                <h3><a href="https://github.com/nlekkerman/future_flowers_shop" target="_blank">Future Flowers Shop</a></h3>
-                <p class="card-text">This project enhances the Seed Shop platform by integrating advanced features, such as AI chat support and seamless e-commerce functionalities. Built with Django and deployed on Heroku, it offers an intuitive, scalable shopping experience.</p>
-                <div class="tech-stack">
-                    <span class="badge badge-secondary">Django</span>
-                    <span class="badge badge-secondary">HTML</span>
-                    <span class="badge badge-secondary">CSS</span>
-                    <span class="badge badge-secondary">JavaScript</span>
-                    <span class="badge badge-secondary">Stripe API</span>
-                    <span class="badge badge-secondary">Heroku</span>
-                    <span class="badge badge-secondary">ChatGPT</span>
-                </div>
-            </div>
-        </div>
-    </div>
+          <!-- Future Flowers Shop -->
+          <div class="col-12 col-md-6 col-lg-4 col-xl-2 mb-4">
+              <div class="project card">
+                  <img src="assets/images/future-flower-shop-homepage.png" alt="Future Flowers Shop Project Image" class="card-img-top">
+                  <div class="overlay">
+                      <div class="video-container">
+                          <iframe src="https://www.youtube.com/embed/example5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                          <p class="video-title">DEMO</p>
+                      </div>
+                      <div class="description-container">
+                          <h3>Future Flowers Shop</h3>
+                          <p>An advanced e-commerce platform with AI chat support, seamless shopping, and secure payment integration.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

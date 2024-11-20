@@ -66,5 +66,5 @@ An advanced e-commerce platform with AI chat support, built using Django and dep
 
 Feel free to reach out for collaborations or inquiries:
 - **LinkedIn**: [Nikola Simic](https://www.linkedin.com/in/nikola-simic-674862110)
-- **Email**: [Your Email Address Here]
+- **Email**: [nlekkerman@gmail.com]
 - **GitHub**: [nlekkerman](https://github.com/nlekkerman)
