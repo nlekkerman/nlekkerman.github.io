@@ -1,0 +1,27 @@
+body {
+    background-color: black;
+    color: white;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+  
+  /* Reuse your existing styles here */
+  .project-card {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  /* Add the remaining styles */
+  
