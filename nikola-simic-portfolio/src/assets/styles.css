@@ -1,9 +1,54 @@
-html, body, #root {
+html, body {
   width: 100%;
   margin: 0;
   padding: 0;
 }
+#root {
+  min-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.talk-button{
+  background: none;
+  max-width: 400px;
+  margin-bottom: 2em;
+ 
+}
+.talk-button.active {
+  background-color: neon green; /* Neon green when active */
+}
+.mic-text{
+  color: white;
+}
+button {
+  padding: 0 !important;
+}
 
+.talk-button:hover {
+  transform: translateY(-5px); /* Button floats upward slightly */
+}
+
+.talk-button:focus {
+  outline: none;
+}
+
+.talk-button::before {
+  content: ''; /* Create a glowing orb effect below the button */
+  position: absolute;
+  bottom: -15px; /* Position below the button */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 30px;
+  border-radius: 50%;
+  filter: blur(10px); /* Makes the glow smoother */
+  z-index: -1; /* Send the orb glow behind the button */
+}
+
+.button-image {
+  max-width: 300px; /* Limit the size of the image */
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2)); /* Drop shadow for the image */
+}
 .navbar-brand {
   font-size: 1.5rem;
   letter-spacing: 1px;
@@ -111,4 +156,11 @@ html, body, #root {
     background-color: #f8f9fa !important;
     color: #000;
   }
+  .talk-button.active {
+    background-color: neon-green;
+    box-shadow: 0px 0px 20px 5px lime;
+  }
   
+  .modal-content strong {
+    color: #333;
+  }

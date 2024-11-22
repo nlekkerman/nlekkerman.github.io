@@ -1,32 +1,28 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import micImage from '../assets/images/mic.png';
+import './Home.css';
 
-const ProjectCard = ({ videoSrc, description, title, link, bgClass }) => (
-  <div className="project-card">
-    <div className="video-container">
-      <iframe
-        src={videoSrc}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        title={title}
-      ></iframe>
-      <p className="mt-3">{description}</p>
-    </div>
-    <div className={`content-container ${bgClass}`}>
-      <h3>{title}</h3>
-      <a className="demo-link" href={link} target="_blank" rel="noopener noreferrer">
-        View GitHub Repo
-      </a>
-    </div>
-  </div>
-);
+const Home = () => {
+  
 
-ProjectCard.propTypes = {
-  videoSrc: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
-  bgClass: PropTypes.string.isRequired,
+  const handleButtonClick = () => {
+   handleVoicePermissionsAndStartSpeechRecognition();
+  };
+
+  return (
+    <div>
+      <motion.button
+        className={`talk-button ${isListening ? 'active' : ''}`}
+        onClick={handleButtonClick}
+      >
+        <img src={micImage} alt="Microphone" className="button-image" />
+        <p className="mic-text">
+          {isListening ? 'Listening...' : 'Click to talk'}
+        </p>
+      </motion.button>
+    </div>
+  );
 };
 
-export default ProjectCard;
+export default Home;
