@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import micImage from '../assets/images/mic.png'; // Microphone image path
+import portfolioIcon from '../assets/images/portfolio-icon.jpg'; // Microphone image path
 import './Home.css';
 
 const Home = () => {
@@ -22,47 +23,29 @@ const Home = () => {
   ];
 
   const startSpeechRecognition = () => {
-    if (isAssistantSpeaking) {
-      return; // Prevent recognition if the assistant is speaking
+    if (!recognition.current) {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      recognition.current = new SpeechRecognition();
+      recognition.current.continuous = true;
+      recognition.current.lang = 'en-US';
+  
+      recognition.current.onend = () => {
+        if (isListening) {
+          console.log("Recognition ended, restarting because isListening is true");
+          recognition.current.start();
+        }
+      };
+  
+      recognition.current.onresult = (event) => {
+        const detectedTranscript = event.results[event.resultIndex][0].transcript.trim().toLowerCase();
+        setTranscript(detectedTranscript);
+        handleSpeechRecognition(detectedTranscript);
+      };
     }
-
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if (!SpeechRecognition) {
-      alert("Speech recognition is not supported in this browser.");
-      return;
-    }
-
-    recognition.current = new SpeechRecognition();
-    recognition.current.continuous = true;
-    recognition.current.lang = 'en-US';
-
-    recognition.current.onstart = () => {
-      setIsListening(true);
-    };
-
-    recognition.current.onresult = (event) => {
-      if (isAssistantSpeaking || isUserBlocked) {
-        return;
-      }
-
-      const detectedTranscript = event.results[event.resultIndex][0].transcript.trim().toLowerCase();
-      setTranscript(detectedTranscript);
-      handleSpeechRecognition(detectedTranscript);
-    };
-
-    recognition.current.onerror = (error) => {
-      console.error("[Recognition]: Error:", error);
-    };
-
-    recognition.current.onend = () => {
-      if (!isAssistantSpeaking && !isUserBlocked) {
-        recognition.current.start(); // Restart recognition after speaking
-        setIsListening(true); // Keep the listening indicator on
-      }
-    };
-
-    recognition.current.start();
+    speakResponse("Helo there, I'm here to simulate basic and most common recruiters questions!");
+  
     setIsListening(true);
+    recognition.current.start();
   };
 
   const stopSpeechRecognition = () => {
@@ -108,6 +91,51 @@ const Home = () => {
 
     window.speechSynthesis.speak(utterance);
   };
+
+  const speakResponseClose = (responseText) => {
+    if (isAssistantSpeaking) {
+      setIsUserBlocked(true);
+      return;
+    }
+  
+    setIsAssistantSpeaking(true);
+    setIsListening(false);
+  
+    // Stop recognition explicitly
+    if (recognition.current) {
+      recognition.current.stop();
+    }
+  
+    const utterance = new SpeechSynthesisUtterance(responseText);
+    utterance.lang = 'en-GB';
+  
+    utterance.onstart = () => {
+      setIsAssistantSpeaking(true);
+      setIsUserBlocked(true);
+    };
+  
+    utterance.onend = () => {
+      setIsAssistantSpeaking(false);
+      setIsUserBlocked(false);
+  
+      // Reinitialize recognition and restart listening
+      if (!recognition.current) {
+        startSpeechRecognition(); // Safely reinitialize recognition
+      } else if (isListening) {
+        recognition.current.start(); // Restart recognition
+        setIsListening(true);
+      }
+    };
+  
+    utterance.onerror = (error) => {
+      console.error("Speech synthesis error:", error);
+      setIsAssistantSpeaking(false);
+      setIsUserBlocked(false);
+    };
+  
+    window.speechSynthesis.speak(utterance);
+  };
+  
 
   const handleSpeechRecognition = (transcript) => {
     const normalizedTranscript = transcript.trim().toLowerCase();
@@ -297,10 +325,19 @@ const Home = () => {
       }
     ];
     
-
+    // Stop listening if the user says "thank you, that is all"
+    if (
+      normalizedTranscript.includes("thank you that is all") ||
+      normalizedTranscript.includes("thank you that's all") ||
+      normalizedTranscript.includes("thank you that was all")
+    ) {
+      speakResponseClose("You're welcome! Thank you for your time.");
+      stopSpeechRecognition();
+      return;
+    }
     if (questionsAndAnswers.some(q => q.category === 'portfolio' && q.keywords.some(keyword => normalizedTranscript.includes(keyword)))) {
       if (!showPortfolio) {
-        setShowPortfolio(true); // Show the portfolio cards if keyword is matched
+        showPortfolioHandler();
         speakResponse("Here are some of my projects!");
         return; // Exit function after triggering the portfolio view
       }
@@ -343,21 +380,31 @@ const Home = () => {
       setFallbackTimer(null); // Reset the timer
     }
   };
-
+// Independent function to show portfolio
+const showPortfolioHandler = () => {
+  setShowPortfolio(true);  // This will display the portfolio
+};
   return (
-    <div>
+    <div className='main-container'>
       <motion.button
         className={`talk-button ${isListening ? 'active' : ''} ${isAssistantSpeaking ? 'speaking' : ''}`}
         onClick={startSpeechRecognition}
       >
         <img src={micImage} alt="Microphone" className="button-image" />
-        <p>{isListening ? 'Listening...' : 'Click to talk'}</p>
+        <p>{isListening ? 'Listening...' : 'Click to talk!'}</p>
       </motion.button>
 
-      <div className="transcript-container">
-        <p>{transcript}</p>
-        {isUserBlocked && <p className="blocked-message">Please wait while I finish talking...</p>}
-      </div>
+
+      <motion.button
+        className={`show-portfolio-button `}
+        onClick={showPortfolioHandler}  // Call the independent function onClick
+      >
+        <img src={portfolioIcon} alt="Portfolio Icon" className="portfolio-icon" />
+        <p>{'Reveal Portfolio'}</p>
+      </motion.button>
+
+
+      
 
       {showPortfolio && (
         <div className="portfolio-container">
