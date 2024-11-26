@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import micImage from '../assets/images/mic.png'; // Microphone image path
 import portfolioIcon from '../assets/images/portfolio-icon.jpg'; // Microphone image path
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './Home.css';
 
 const Home = () => {
@@ -15,12 +16,43 @@ const Home = () => {
   const [fallbackTimer, setFallbackTimer] = useState(null); // Store the timer reference
 
   const portfolioProjects = [
-    { title: "Project 1", description: "A full-stack application built with React and Node.js.", githubLink: "https://github.com/username/project1", backgroundImage: "url('/images/project1.jpg')" },
-    { title: "Project 2", description: "An e-commerce platform with payment integration using Stripe.", githubLink: "https://github.com/username/project2", backgroundImage: "url('/images/project2.jpg')" },
-    { title: "Project 3", description: "A social media platform built with React and Firebase.", githubLink: "https://github.com/username/project3", backgroundImage: "url('/images/project3.jpg')" },
-    { title: "Project 4", description: "A portfolio website showcasing personal projects and blog posts.", githubLink: "https://github.com/username/project4", backgroundImage: "url('/images/project4.jpg')" },
-    { title: "Project 5", description: "A weather app that uses an API to fetch weather data.", githubLink: "https://github.com/username/project5", backgroundImage: "url('/images/project5.jpg')" },
+    {
+      title: 'Responsive Resume Website',
+      description:
+        'A responsive single-page personal portfolio website showcasing my skills, projects, and contact information. Built using HTML, CSS, and Bootstrap for a modern and professional design.',
+      githubLink: 'https://github.com/user/resume-website',
+      demoVideo: 'https://www.youtube.com/embed/your-resume-demo',
+    },
+    {
+      title: 'Interactive Quiz App',
+      description:
+        'A JavaScript-powered quiz application featuring multiple-choice questions, a timer, and a scoring system. Designed to be engaging and user-friendly with real-time feedback.',
+      githubLink: 'https://github.com/user/quiz-app',
+      demoVideo: 'https://www.youtube.com/embed/your-quiz-demo',
+    },
+    {
+      title: 'E-Commerce Website Mockup',
+      description:
+        'A dynamic front-end mockup of an e-commerce platform. Features include a product gallery, responsive navigation, and an interactive shopping cart using JavaScript and CSS animations.',
+      githubLink: 'https://github.com/user/ecommerce-mockup',
+      demoVideo: 'https://www.youtube.com/embed/your-ecommerce-demo',
+    },
+    {
+      title: 'Data Dashboard for Weather Monitoring',
+      description:
+        'A dashboard built with Python and Flask to display real-time weather data. Features an interactive chart and API integration for fetching live weather data for multiple cities.',
+      githubLink: 'https://github.com/user/weather-dashboard',
+      demoVideo: 'https://www.youtube.com/embed/your-weather-demo',
+    },
+    {
+      title: 'Python-Based Task Manager',
+      description:
+        'A simple yet efficient task management system built in Python with a Tkinter GUI. Allows users to add, edit, and delete tasks, with data persistence using SQLite.',
+      githubLink: 'https://github.com/user/task-manager',
+      demoVideo: 'https://www.youtube.com/embed/your-task-manager-demo',
+    },
   ];
+  
 
   const startSpeechRecognition = () => {
     if (!recognition.current) {
@@ -380,47 +412,82 @@ const Home = () => {
       setFallbackTimer(null); // Reset the timer
     }
   };
-// Independent function to show portfolio
+// Show Portfolio Handler
 const showPortfolioHandler = () => {
-  setShowPortfolio(true);  // This will display the portfolio
+  setShowPortfolio(true);
 };
-  return (
-    <div className='main-container'>
-      <motion.button
-        className={`talk-button ${isListening ? 'active' : ''} ${isAssistantSpeaking ? 'speaking' : ''}`}
-        onClick={startSpeechRecognition}
-      >
-        <img src={micImage} alt="Microphone" className="button-image" />
-        <p>{isListening ? 'Listening...' : 'Click to talk!'}</p>
-      </motion.button>
 
+// Close Portfolio Handler
+const closePortfolioHandler = () => {
+  setShowPortfolio(false);
+};
 
-      <motion.button
-        className={`show-portfolio-button `}
-        onClick={showPortfolioHandler}  // Call the independent function onClick
-      >
-        <img src={portfolioIcon} alt="Portfolio Icon" className="portfolio-icon" />
-        <p>{'Reveal Portfolio'}</p>
-      </motion.button>
+return (
+  <div className="main-container">
+    {/* Button container hidden when portfolio is displayed */}
+    {!showPortfolio && (
+      <div className="button-container">
+        <motion.button
+          className={`talk-button ${isListening ? 'active' : ''} ${isAssistantSpeaking ? 'speaking' : ''}`}
+          onClick={startSpeechRecognition}
+        >
+          <img src={micImage} alt="Microphone" className="button-image" />
+          <p>{isListening ? 'Listening...' : 'Click to talk!'}</p>
+        </motion.button>
 
+        <motion.button
+          className={`show-portfolio-button`}
+          onClick={showPortfolioHandler}
+        >
+          <img src={portfolioIcon} alt="Portfolio Icon" className="portfolio-icon" />
+          <p>{'Reveal Portfolio'}</p>
+        </motion.button>
+      </div>
+    )}
 
-      
+    {/* Portfolio container displayed when showPortfolio is true */}
+    {showPortfolio && (
+ <div className="portfolio-container">
+ {/* Close button */}
+ <button className="close-button" onClick={closePortfolioHandler}>
+   ✖
+ </button>
 
-      {showPortfolio && (
-        <div className="portfolio-container">
-          {portfolioProjects.map((project, index) => (
-            <div key={index} className="project-card" style={{ backgroundImage: project.backgroundImage }}>
-              <div className="project-info">
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <a href={project.githubLink} target="_blank" rel="noopener noreferrer">View on GitHub</a>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
+ {/* Portfolio content */}
+ <div className="row"> {/* Use Bootstrap row to create a grid */}
+   {portfolioProjects.map((project, index) => (
+     <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3"> {/* Use column classes for responsiveness */}
+       <div className="project-card">
+         <div className="project-info">
+           <h3>{project.title}</h3>
+           <p>{project.description}</p>
+
+           {/* Demo Video */}
+           <div className="demo-video-container">
+             <iframe
+               src={project.demoVideo}
+               title={`Demo of ${project.title}`}
+               frameBorder="0"
+               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+               allowFullScreen
+             ></iframe>
+           </div>
+
+           {/* GitHub Link */}
+           <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+             View on GitHub
+           </a>
+         </div>
+       </div>
+     </div>
+   ))}
+ </div>
+</div>
+
+)}
+
+  </div>
+);
 };
 
 export default Home;
