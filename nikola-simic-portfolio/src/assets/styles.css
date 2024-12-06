@@ -1,6 +1,6 @@
 /* General styles */
 body {
-  background: url('./src/assets/images/main-background.webp') no-repeat center center;
+  background: url('/main-background.webp') no-repeat center center;
   background-size: cover; /* Ensures the background image covers the entire viewport */
   margin: 0;
   padding: 0;
@@ -66,7 +66,7 @@ body {
 /* Active talk button color */
 .talk-button.active {
   background-color: rgb(0, 0, 0); /* Green when active */
-  background-image: url('./src/assets/images/ear-icon.png'); /* Set the icon for the speaking state */
+  background-image: url('/ear-icon.png'); /* Set the icon for the speaking state */
 border: 4px solid rgb(14, 173, 0);
   background-size: 120px 120px; /* Adjust the icon size */
   background-repeat: no-repeat;
@@ -75,7 +75,7 @@ border: 4px solid rgb(14, 173, 0);
 /* Speaking talk button color */
 .talk-button.speaking {
   background-color: rgb(0, 0, 0); /* Red when speaking */
-  background-image: url('./src/assets/images/talk-icon.png'); /* Set the icon for the active state */
+  background-image: url('/talk-icon.png'); /* Set the icon for the active state */
   border: 4px solid rgb(173, 0, 0);
   background-size: 120px 120px; /* Adjust the icon size */
   background-repeat: no-repeat;
@@ -85,7 +85,7 @@ border: 4px solid rgb(14, 173, 0);
 /* Initial state talk button color */
 .talk-button.initial {
   background-color: rgb(0, 0, 0); /* Default for initial state */
-  background-image: url('./src/assets/images/mic.png'); /* Path to the third icon */
+  background-image: url('/mic.png'); /* Path to the third icon */
   border: 4px solid transparent;
   background-size: 120px 120px; /* Adjust the icon size */
   background-repeat: no-repeat;
@@ -102,7 +102,7 @@ border: 4px solid rgb(14, 173, 0);
 }
 .show-portfolio-button  {
   background-color: rgb(0, 0, 0); /* Default for initial state */
-  background-image: url('./src/assets/images/portfolio-icon.jpg'); /* Path to the third icon */
+  background-image: url('/portfolio-icon.jpg'); /* Path to the third icon */
   background-size: 100% 100%; /* Adjust the icon size */
   background-repeat: no-repeat;
   background-position: center;
