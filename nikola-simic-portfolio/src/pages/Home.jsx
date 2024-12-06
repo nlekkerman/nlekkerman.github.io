@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import micImage from "../assets/images/talk-icon.png"; // Microphone image path
 import portfolioIcon from "../assets/images/portfolio-icon.jpg"; // Microphone image path
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Home.css";
@@ -25,43 +24,42 @@ const Home = () => {
       description:
         "This project aims to create websites that are accessible and usable by everyone, regardless of their abilities or disabilities.",
       githubLink: "https://github.com/VCGithubCode/access-granted",
-      demoVideo: "https://www.youtube.com/embed/access-granted-demo", // Update if a demo video is available
+      demoVideo: "https://www.youtube.com/embed/access-granted-demo", 
+    },
+    {
+      title: "Future Flowers Shop",
+      description:
+        "An advanced e-commerce platform with AI chat support, built using Django and deployed on Heroku.",
+      githubLink: "https://github.com/nlekkerman/future_flowers_shop",
+      demoVideo: "https://www.youtube.com/embed/fV8RmBUKWEU",
     },
     {
       title: "Hotel Wantit",
       description:
         "A dynamic web platform for hotel room and table booking, featuring interactive chat functionality and smooth user experience.",
       githubLink: "https://github.com/nlekkerman/hotel-wantit",
-      demoVideo: "https://www.youtube.com/embed/hotel-wantit-demo",
+      demoVideo: "https://www.youtube.com/embed/K-VDeyPZJNs",
     },
-    {
-      title: "Future Flowers Shop",
-      description:
-        "An advanced e-commerce platform with AI chat support, built using Django and deployed on Heroku.",
-      githubLink: "https://github.com/nlekkerman/future-flowers-shop",
-      demoVideo: "https://www.youtube.com/embed/future-flowers-demo",
-    },
-
     {
       title: "Save Waldo",
       description:
         "An interactive text-based adventure game where you solve puzzles and riddles to rescue Waldo. Includes logic puzzles and challenging interactive levels.",
       githubLink: "https://github.com/nlekkerman/save-waldo",
-      demoVideo: "https://www.youtube.com/embed/save-waldo-demo",
+      demoVideo: "https://www.youtube.com/embed/ob0kXHP4bh0",
     },
     {
       title: "Infinite Guess",
       description:
         "A thrilling number-guessing game that tests your intuition and strategy with bonus rounds, leaderboards, and challenging mystery features.",
       githubLink: "https://github.com/nlekkerman/infinite-guess",
-      demoVideo: "https://www.youtube.com/embed/infinite-guess-demo",
+      demoVideo: "https://www.youtube.com/embed/OLQhSHsHQHQ",
     },
     {
       title: "Killarney Wild",
       description:
         "Explore the untamed beauty of Killarney National Park with this immersive platform featuring captivating imagery, wildlife details, and community-focused conservation efforts.",
       githubLink: "https://github.com/nlekkerman/killarney-wild",
-      demoVideo: "https://www.youtube.com/embed/killarney-wild-demo",
+      demoVideo: "https://www.youtube.com/embed/8FE15_CsunU",
     },
   ];
 
@@ -253,6 +251,7 @@ const Home = () => {
           "brief introduction",
           "what is your story",
           "what's your story",
+          "what's your name",
           "share journey",
           "share your journey",
           "career overview",
@@ -590,22 +589,31 @@ const Home = () => {
       {!showPortfolio && (
         <div className="button-container">
           <motion.button
-            className={`talk-button ${isListening ? "active" : ""} ${
-              isAssistantSpeaking ? "speaking" : ""
-            }`}
+            className={`talk-button 
+              ${isListening ? "active" : ""} 
+              ${isAssistantSpeaking ? "speaking" : ""} 
+              ${isInitial ? "initial" : ""}`}
             onClick={startSpeechRecognition}
           >
             <p>
               {isIntroduction
                 ? "" // When introduction is active
                 : isInitial
-                ? "Hi, I’m Nikola! This voice assistant is designed to represent me and answer some of the most common questions asked by recruiters during interviews. Simply click the button to start, and I’ll guide you through the process. Whether it’s about my skills, experience, or personality, I’ll respond just as I would in a real interview. When you're ready, click to begin!"
+                ? "NIKOLA'S VOICE"
                 : isListening
                 ? "Listening..." // If actively listening
                 : isAssistantSpeaking
                 ? "Wait please..." // If assistant is speaking
                 : "Please wait..."}{" "}
             </p>
+            {/* Hidden paragraph that appears on hover */}
+            <span className="talk-button-description">
+              Engage in a realistic interview experience with me! Click the
+              button to allow microphone access and ask questions about my
+              skills, experience, and more. I’ll respond just as I would in a
+              real interview. Want to know the best questions to ask? Click the
+              Instructions button to see helpful phrases for all the questions.
+            </span>
           </motion.button>
 
           {/* Instruction button to toggle visibility of instructions */}
@@ -622,11 +630,6 @@ const Home = () => {
             className={`show-portfolio-button`}
             onClick={showPortfolioHandler}
           >
-            <img
-              src={portfolioIcon}
-              alt="Portfolio Icon"
-              className="portfolio-icon"
-            />
             <p>{"Reveal Portfolio"}</p>
           </motion.button>
 
@@ -744,8 +747,8 @@ const Home = () => {
       {showFooter && (
         <div className="footer-container">
           <div className="contact-info">
-            <p>Email: example@email.com</p>
-            <p>Phone: +123 456 7890</p>
+            <p>Email: nlekkerman@gmail.com</p>
+            <p>Phone: +353 83 095 5102</p>
           </div>
         </div>
       )}

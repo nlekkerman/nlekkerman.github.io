@@ -56,6 +56,12 @@ body {
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s; /* Smooth transitions for hover effects */
 }
+/* Style for the talk button */
+.talk-button {
+  position: relative; /* Required for absolute positioning of the description */
+  overflow: hidden; /* Ensure the paragraph doesn't exceed button bounds */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
 
 /* Active talk button color */
 .talk-button.active {
@@ -66,7 +72,52 @@ border: 4px solid rgb(14, 173, 0);
   background-repeat: no-repeat;
   background-position: center;
 }
-.talk-button.active p, .talk-button.talk-button.speaking p {
+/* Speaking talk button color */
+.talk-button.speaking {
+  background-color: rgb(0, 0, 0); /* Red when speaking */
+  background-image: url('./src/assets/images/talk-icon.png'); /* Set the icon for the active state */
+  border: 4px solid rgb(173, 0, 0);
+  background-size: 120px 120px; /* Adjust the icon size */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Initial state talk button color */
+.talk-button.initial {
+  background-color: rgb(0, 0, 0); /* Default for initial state */
+  background-image: url('./src/assets/images/mic.png'); /* Path to the third icon */
+  border: 4px solid transparent;
+  background-size: 120px 120px; /* Adjust the icon size */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* Target the paragraph inside the button when isInitial is true */
+.talk-button.initial p {
+  position: relative;
+  width: 100%;
+  padding: 5px 0px;
+  background-color: rgba(0, 0, 0, 0.9);
+ bottom: -150px;
+
+}
+.show-portfolio-button  {
+  background-color: rgb(0, 0, 0); /* Default for initial state */
+  background-image: url('./src/assets/images/portfolio-icon.jpg'); /* Path to the third icon */
+  background-size: 100% 100%; /* Adjust the icon size */
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0px !important;
+}
+
+.show-portfolio-button p {
+  position: relative;
+  width: 100%;
+  padding: 5px 0px;
+  background-color: rgba(0, 0, 0, 0.9);
+ bottom: -150px;
+
+}
+.talk-button.active p, .talk-button.speaking p {
   position: absolute;
   bottom: 2em;
 }
@@ -76,32 +127,55 @@ border: 4px solid rgb(14, 173, 0);
   background-color: antiquewhite;
 }
 
-/* Speaking talk button color */
-.talk-button.speaking {
-  background-color: rgb(0, 0, 0); /* Red when speaking */
-  background-image: url('./src/assets/images/talk-icon.png'); /* Set the icon for the active state */
-  border: 4px solid rgb(173, 0, 0);
 
-  background-size: 120px 120px; /* Adjust the icon size */
-  background-repeat: no-repeat;
-  background-position: center;
-}
 
 /* Icon size for talk and portfolio buttons */
-.talk-button img,
-.show-portfolio-button img {
+.talk-button img {
   width: 124px;
   height: 124px;
   border-radius: 50%; /* Circular images */
 }
 
-/* Hover effect for buttons */
-.talk-button:hover,
+
 .show-portfolio-button:hover {
   transform: scale(1.05); /* Slight scale-up effect */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
 }
 
+.talk-button:hover {
+  transform: scale(1.05); /* Slight scale-up effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+/* Description covering the entire button */
+.talk-button-description {
+  display: flex; /* Enable flexbox for centering text */
+  justify-content: center; /* Center text horizontally */
+  align-items: center; /* Center text vertically */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Cover the entire button width */
+  height: 100%; /* Cover the entire button height */
+  background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent background */
+  color: #fff; /* White text */
+  font-size: 1rem; /* Font size for the description */
+  padding: 8px; /* Optional padding */
+  border-radius: 8px; /* Match the button's border radius */
+  text-align: center; /* Center text alignment */
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.3s; /* Smooth fade-in effect */
+  z-index: 10; /* Ensure it appears above other content */
+}
+
+/* Show the description on hover */
+.talk-button:hover .talk-button-description {
+  opacity: 1; /* Make the paragraph visible */
+}
+/* Ensure the description is hidden when isInitial is false */
+.talk-button:not(.initial):hover .talk-button-description {
+  opacity: 0; /* Keep the description hidden on hover when isInitial is false */
+}
 /* Portfolio container styling */
 .portfolio-container {
   width: 100%;
@@ -206,7 +280,7 @@ border: 4px solid rgb(14, 173, 0);
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Centers the button */
+  transform: translate(-50%, -52.5%); /* Centers the button */
   z-index: 101; /* Ensure it's on top of everything */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Add shadow */
 }
@@ -239,7 +313,7 @@ border: 4px solid rgb(14, 173, 0);
   background-color: rgba(0, 0, 0, 0.9); /* Dark background */
   z-index: 101;
   position: absolute;
-  top: 50%;
+  top: 48.8%;
   left: 50%;
   transform: translate(-50%, -50%); /* Center the instructions */
   width: 300px;
@@ -270,10 +344,12 @@ border: 4px solid rgb(14, 173, 0);
 }
 
 .footer-container {
-  background-color: #f1f1f1;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
   padding: 20px;
   text-align: center;
-  margin-top: 20px;
+  position: fixed;
+  bottom: 5em;
 }
 
 .contact-info p {
