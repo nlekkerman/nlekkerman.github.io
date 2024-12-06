@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import portfolioIcon from "../assets/images/portfolio-icon.jpg"; // Microphone image path
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Home.css";
 
