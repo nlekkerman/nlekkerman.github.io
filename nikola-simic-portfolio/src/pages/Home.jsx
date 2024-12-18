@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Home.css";
@@ -17,50 +17,51 @@ const Home = () => {
   const [isIntroduction, setisIntroduction] = useState(false);
   const [showFooter, setShowFooter] = useState(false);
 
-  const portfolioProjects = [
-    {
-      title: "Access Granted",
-      description:
-        "This project aims to create websites that are accessible and usable by everyone, regardless of their abilities or disabilities.",
-      githubLink: "https://github.com/VCGithubCode/access-granted",
-      demoVideo: "https://www.youtube.com/embed/access-granted-demo", 
-    },
-    {
-      title: "Future Flowers Shop",
-      description:
-        "An advanced e-commerce platform with AI chat support, built using Django and deployed on Heroku.",
-      githubLink: "https://github.com/nlekkerman/future_flowers_shop",
-      demoVideo: "https://www.youtube.com/embed/fV8RmBUKWEU",
-    },
-    {
-      title: "Hotel Wantit",
-      description:
-        "A dynamic web platform for hotel room and table booking, featuring interactive chat functionality and smooth user experience.",
-      githubLink: "https://github.com/nlekkerman/hotel-wantit",
-      demoVideo: "https://www.youtube.com/embed/K-VDeyPZJNs",
-    },
-    {
-      title: "Save Waldo",
-      description:
-        "An interactive text-based adventure game where you solve puzzles and riddles to rescue Waldo. Includes logic puzzles and challenging interactive levels.",
-      githubLink: "https://github.com/nlekkerman/save-waldo",
-      demoVideo: "https://www.youtube.com/embed/ob0kXHP4bh0",
-    },
-    {
-      title: "Infinite Guess",
-      description:
-        "A thrilling number-guessing game that tests your intuition and strategy with bonus rounds, leaderboards, and challenging mystery features.",
-      githubLink: "https://github.com/nlekkerman/infinite-guess",
-      demoVideo: "https://www.youtube.com/embed/OLQhSHsHQHQ",
-    },
-    {
-      title: "Killarney Wild",
-      description:
-        "Explore the untamed beauty of Killarney National Park with this immersive platform featuring captivating imagery, wildlife details, and community-focused conservation efforts.",
-      githubLink: "https://github.com/nlekkerman/killarney-wild",
-      demoVideo: "https://www.youtube.com/embed/8FE15_CsunU",
-    },
-  ];
+ const portfolioProjects = [
+  {
+    title: "Access Granted",
+    description:
+      "This project focuses on creating accessible websites that cater to all users, regardless of their abilities or disabilities. By using HTML, CSS, and JavaScript, the site integrates key accessibility features like keyboard navigation, screen reader compatibility, and high-contrast elements, ensuring an inclusive user experience for everyone.",
+    githubLink: "https://github.com/VCGithubCode/access-granted",
+    demoVideo: "https://www.youtube.com/embed/access-granted-demo",
+  },
+  {
+    title: "Future Flowers Shop",
+    description:
+      "An e-commerce platform built with Django that allows users to browse and purchase flowers. It features real-time cart management, secure payment processing via Stripe, and a responsive front-end designed with Bootstrap and jQuery. Data is fetched from the server and stored in local storage for faster loading times, enhancing the user experience. Users can easily manage their cart and proceed to checkout securely.",
+    githubLink: "https://github.com/nlekkerman/future_flowers_shop",
+    demoVideo: "https://www.youtube.com/embed/fV8RmBUKWEU",
+  },
+  {
+    title: "Hotel Wantit",
+    description:
+      "A web platform designed for booking hotel rooms and restaurant tables. It features an intuitive booking system, real-time availability updates, and a simple interface for managing reservations. Built with Django for the backend and Bootstrap for a responsive front-end, the platform also includes an admin dashboard for managing bookings, reviews, and user feedback. Real-time notifications ensure that both guests and admins stay updated on reservation statuses.",
+    githubLink: "https://github.com/nlekkerman/hotel-wantit",
+    demoVideo: "https://www.youtube.com/embed/K-VDeyPZJNs",
+  },
+  {
+    title: "Save Waldo",
+    description:
+      "An interactive, text-based adventure game where players solve puzzles and riddles to rescue Waldo. Developed using JavaScript, this project involves dynamic user interaction, logic puzzles, and branching storylines, providing an engaging experience that challenges players to think critically and creatively as they progress through the game.",
+    githubLink: "https://github.com/nlekkerman/save-waldo",
+    demoVideo: "https://www.youtube.com/embed/ob0kXHP4bh0",
+  },
+  {
+    title: "Infinite Guess",
+    description:
+      "A number-guessing game that tests players' intuition and strategy. It features bonus rounds, a leaderboard, and challenging mystery features. Built with JavaScript, the game includes dynamic updates, real-time score tracking, and an engaging user interface to keep players entertained as they compete for the best score.",
+    githubLink: "https://github.com/nlekkerman/infinite-guess",
+    demoVideo: "https://www.youtube.com/embed/OLQhSHsHQHQ",
+  },
+  {
+    title: "Killarney Wild",
+    description:
+      "A platform dedicated to showcasing the beauty of Killarney National Park, featuring stunning imagery, detailed wildlife information, and community-focused conservation efforts. Built with HTML, CSS, and JavaScript, this project provides an interactive and educational experience for users, helping to raise awareness about the park's natural beauty and the importance of conservation.",
+    githubLink: "https://github.com/nlekkerman/killarney-wild",
+    demoVideo: "https://www.youtube.com/embed/8FE15_CsunU",
+  },
+];
+
 
   const startSpeechRecognition = () => {
     if (isListening) {
@@ -591,6 +592,7 @@ const Home = () => {
             className={`talk-button 
               ${isListening ? "active" : ""} 
               ${isAssistantSpeaking ? "speaking" : ""} 
+              ${showInstructions ? "talk-button-visible" : ""}
               ${isInitial ? "initial" : ""}`}
             onClick={startSpeechRecognition}
           >
@@ -620,9 +622,7 @@ const Home = () => {
             className="instruction-button"
             onClick={toggleInstructions}
           >
-            <p>
-              {showInstructions ? "Hide Instructions" : "Show Instructions"}
-            </p>
+            <p>{showInstructions ? "Hide" : "Instructions"}</p>
           </motion.button>
 
           <motion.button
@@ -644,56 +644,94 @@ const Home = () => {
       {/* Instructions paragraph */}
       {showInstructions && (
         <div className="instructions">
+          {/* Exit Option at the Top with its own className */}
+          <p className="instructions-title">INSTRUCTIONS</p>
+          <p className="exit-option">
+            Hello and welcome! <br />
+            If you want to exit,
+            <br /> you must say the exact phrase{" "}
+            <strong>"Thank you, that was all!"</strong> or hide the instructions
+            and click the same button you started with. <br />
+          </p>
+
+          {/* Explanation of Bolded Phrases with its own className */}
+          <p className="explanation-text">
+            The following questions are placed in sentences, and the{" "}
+            <strong>"exact phrases you can use are bolded"</strong>. You can
+            either use these <strong>"exact bolded phrases"</strong> directly or
+            rephrase them in your own words to guide the conversation.
+          </p>
+
+          {/* Exciting Introduction */}
           <p>
-            show your portfolio? <br />
+            If we ready for an interview here are all questions that you can
+            ask:
+          </p>
+
+          {/* Interview Questions with Bolded Phrases */}
+          <p>
+            <strong>"Hi!"</strong> It's great to meet you. Let's dive into the
+            interview! <br />
           </p>
           <p>
-            show your work? <br />
+            Can you <strong>"show your portfolio?"</strong> to demonstrate your
+            work and skills? <br />
           </p>
           <p>
-            Introduce yourself? <br />
+            Would you like to <strong>"show your work?"</strong> and provide
+            examples of past projects? <br />
           </p>
           <p>
-            your strong side? <br />
+            How would you <strong>"introduce yourself?"</strong> in a
+            professional interview setting? <br />
           </p>
           <p>
-            your weak side? <br />
+            Can you explain <strong>"your strong side?"</strong> and how it
+            contributes to your success? <br />
           </p>
           <p>
-            How do you improve as a developer? <br />
+            What would you say is <strong>"your weak side?"</strong>, and how
+            are you working to improve it? <br />
           </p>
           <p>
-            find bugs? <br />
+            How do you <strong>"improve as a developer?"</strong> and keep up
+            with industry changes? <br />
           </p>
           <p>
-            work in teams? <br />
+            Can you <strong>"find bugs?"</strong> efficiently and explain your
+            process for debugging? <br />
           </p>
           <p>
-            programming languages? <br />
+            How well do you <strong>"work in teams?"</strong>, and can you
+            provide examples of successful collaboration? <br />
           </p>
           <p>
-            recent projects? <br />
+            Which <strong>"programming languages?"</strong> are you most
+            comfortable with and why? <br />
           </p>
           <p>
-            prioritize tasks? <br />
+            Can you share your <strong>"recent projects?"</strong> and the
+            challenges you overcame? <br />
           </p>
           <p>
-            project failure? <br />
+            How do you <strong>"prioritize tasks?"</strong> when managing
+            multiple projects or deadlines? <br />
           </p>
           <p>
-            solve problems? <br />
+            Can you talk about a <strong>"project failure?"</strong> and what
+            you learned from it? <br />
           </p>
           <p>
-            motivating space? <br />
+            How do you <strong>"solve problems?"</strong> that arise during
+            development or in the workplace? <br />
           </p>
           <p>
-            conflicts at work? <br />
+            What kind of <strong>"motivating space?"</strong> helps you stay
+            productive and creative? <br />
           </p>
           <p>
-            Hi! <br />
-          </p>
-          <p>
-            thank you that was all! <br />
+            Have you encountered any <strong>"conflicts at work?"</strong>, and
+            how did you handle them? <br />
           </p>
         </div>
       )}
