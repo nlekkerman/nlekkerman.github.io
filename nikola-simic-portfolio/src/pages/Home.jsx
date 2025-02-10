@@ -17,51 +17,22 @@ const Home = () => {
   const [isIntroduction, setisIntroduction] = useState(false);
   const [showFooter, setShowFooter] = useState(false);
 
- const portfolioProjects = [
-  {
-    title: "Access Granted",
-    description:
-      "This project focuses on creating accessible websites that cater to all users, regardless of their abilities or disabilities. By using HTML, CSS, and JavaScript, the site integrates key accessibility features like keyboard navigation, screen reader compatibility, and high-contrast elements, ensuring an inclusive user experience for everyone.",
-    githubLink: "https://github.com/VCGithubCode/access-granted",
-    demoVideo: "https://www.youtube.com/embed/access-granted-demo",
-  },
-  {
-    title: "Future Flowers Shop",
-    description:
-      "An e-commerce platform built with Django that allows users to browse and purchase flowers. It features real-time cart management, secure payment processing via Stripe, and a responsive front-end designed with Bootstrap and jQuery. Data is fetched from the server and stored in local storage for faster loading times, enhancing the user experience. Users can easily manage their cart and proceed to checkout securely.",
-    githubLink: "https://github.com/nlekkerman/future_flowers_shop",
-    demoVideo: "https://www.youtube.com/embed/fV8RmBUKWEU",
-  },
-  {
-    title: "Hotel Wantit",
-    description:
-      "A web platform designed for booking hotel rooms and restaurant tables. It features an intuitive booking system, real-time availability updates, and a simple interface for managing reservations. Built with Django for the backend and Bootstrap for a responsive front-end, the platform also includes an admin dashboard for managing bookings, reviews, and user feedback. Real-time notifications ensure that both guests and admins stay updated on reservation statuses.",
-    githubLink: "https://github.com/nlekkerman/hotel-wantit",
-    demoVideo: "https://www.youtube.com/embed/K-VDeyPZJNs",
-  },
-  {
-    title: "Save Waldo",
-    description:
-      "An interactive, text-based adventure game where players solve puzzles and riddles to rescue Waldo. Developed using JavaScript, this project involves dynamic user interaction, logic puzzles, and branching storylines, providing an engaging experience that challenges players to think critically and creatively as they progress through the game.",
-    githubLink: "https://github.com/nlekkerman/save-waldo",
-    demoVideo: "https://www.youtube.com/embed/ob0kXHP4bh0",
-  },
-  {
-    title: "Infinite Guess",
-    description:
-      "A number-guessing game that tests players' intuition and strategy. It features bonus rounds, a leaderboard, and challenging mystery features. Built with JavaScript, the game includes dynamic updates, real-time score tracking, and an engaging user interface to keep players entertained as they compete for the best score.",
-    githubLink: "https://github.com/nlekkerman/infinite-guess",
-    demoVideo: "https://www.youtube.com/embed/OLQhSHsHQHQ",
-  },
-  {
-    title: "Killarney Wild",
-    description:
-      "A platform dedicated to showcasing the beauty of Killarney National Park, featuring stunning imagery, detailed wildlife information, and community-focused conservation efforts. Built with HTML, CSS, and JavaScript, this project provides an interactive and educational experience for users, helping to raise awareness about the park's natural beauty and the importance of conservation.",
-    githubLink: "https://github.com/nlekkerman/killarney-wild",
-    demoVideo: "https://www.youtube.com/embed/8FE15_CsunU",
-  },
-];
-
+  const portfolioProjects = [
+    {
+      title: "Future Flowers Shop",
+      description:
+        "An e-commerce platform built with Django that allows users to browse and purchase flowers. It features real-time cart management, secure payment processing via Stripe, and a responsive front-end designed with Bootstrap and jQuery. Data is fetched from the server and stored in local storage for faster loading times, enhancing the user experience. Users can easily manage their cart and proceed to checkout securely.",
+      githubLink: "https://github.com/nlekkerman/future_flowers_shop",
+      demoVideo: "https://www.youtube.com/embed/fV8RmBUKWEU",
+    },
+    {
+      title: "Hotel Wantit",
+      description:
+        "A web platform designed for booking hotel rooms and restaurant tables. It features an intuitive booking system, real-time availability updates, and a simple interface for managing reservations. Built with Django for the backend and Bootstrap for a responsive front-end, the platform also includes an admin dashboard for managing bookings, reviews, and user feedback. Real-time notifications ensure that both guests and admins stay updated on reservation statuses.",
+      githubLink: "https://github.com/nlekkerman/hotel-wantit",
+      demoVideo: "https://www.youtube.com/embed/K-VDeyPZJNs",
+    },
+  ];
 
   const startSpeechRecognition = () => {
     if (isListening) {
