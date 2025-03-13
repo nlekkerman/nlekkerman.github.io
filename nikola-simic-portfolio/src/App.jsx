@@ -1,6 +1,8 @@
 import React from 'react';
 import Home from './pages/Home';
-import './assets/styles.css'; // Your global styles
+import './assets/styles.css'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const App = () => <Home />;
 

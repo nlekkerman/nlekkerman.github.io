@@ -7,6 +7,10 @@ export default defineConfig({
   base: '/',
   server: {
     host: '0.0.0.0',  // Listens on all network interfaces (useful for local testing)
-    port: 5173,        // Make sure the port is correct
+    port: 5173,
+    allowedHosts: [
+      '5173-nlekkerman-nlekkermangi-jtz3juru3m4.ws-eu118.gitpod.io',  // Add this host
+      // Add other hosts if needed
+    ],
   },
 });

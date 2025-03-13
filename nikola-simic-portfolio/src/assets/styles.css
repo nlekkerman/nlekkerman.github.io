@@ -1,11 +1,20 @@
+html, body {
+  height: 100%; 
+  margin: 0;
+  overflow: hidden;
+}
+
 /* General styles */
 body {
+  padding-top: 70px;
+  background-color: transparent;
   background: url("/main-background.webp") no-repeat center center;
-  background-size: cover; /* Ensures the background image covers the entire viewport */
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  color: #333; /* Default text color */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100%;
+ 
 }
 
 /* Main container */
@@ -14,9 +23,15 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+ margin-bottom: 2em !important;
   box-sizing: border-box;
   background: transparent;
+  padding-top: 70px;
+ padding-bottom: 200px;
+
+}
+.about-me{
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 /* Make sure the root element takes the full width */
@@ -24,198 +39,18 @@ body {
   width: 100%;
 }
 
-/* Button container */
-.button-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px; /* Space between buttons */
-  margin: 0 auto;
-  margin-bottom: 20px;
-  width: 100%;
-  justify-content: center;
-  padding: 1em;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-}
-.instructions-title {
-  background-color: #007bff;
-  width: 100%;
-  font-weight: bold;
-  text-align: center;
-}
-.exit-option {
-  font-weight: bold;
-  color: #00ff6e;
-  text-align: center;
-  background-color: #000000;
-}
-
-.explanation-text {
-  background-color: #fff;
-  font-size: 16px;
-  color: #333;
-  margin-top: 10px;
-}
-.instructions strong {
-  font-weight: 700; /* Ensures text is bold */
-  color: #c13d01; /* Customize the color of the bolded text */
-  padding: 2px 4px; /* Optional: add some padding around the bolded text */
-  border-radius: 4px; /* Optional: rounded corners around the bolded text */
-}
-.talk-button-visible p {
-  font-size: 18px; /* Increase font size when talk-button-visible is active */
-  position: absolute;
-  bottom: 0px !important;
-  bottom: 0px !important;
-  font-size: 0.7rem;
-}
-
-
-/* Talk and portfolio buttons styling */
-.talk-button,
-.show-portfolio-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px 20px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  width: 300px;
-  height: 400px;
-  flex-direction: column;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s; /* Smooth transitions for hover effects */
-}
-/* Style for the talk button */
-.talk-button {
-  position: relative; /* Required for absolute positioning of the description */
-  overflow: hidden; /* Ensure the paragraph doesn't exceed button bounds */
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-/* Active talk button color */
-.talk-button.active {
-  background-color: rgb(0, 0, 0); /* Green when active */
-  background-image: url("/ear-icon.png"); /* Set the icon for the speaking state */
-  border: 4px solid rgb(14, 173, 0);
-  background-size: 120px 120px; /* Adjust the icon size */
-  background-repeat: no-repeat;
-  background-position: center;
-}
-/* Speaking talk button color */
-.talk-button.speaking {
-  background-color: rgb(0, 0, 0); /* Red when speaking */
-  background-image: url("/talk-icon.png"); /* Set the icon for the active state */
-  border: 4px solid rgb(173, 0, 0);
-  background-size: 120px 120px; /* Adjust the icon size */
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-/* Initial state talk button color */
-.talk-button.initial {
-  background-color: rgb(0, 0, 0); /* Default for initial state */
-  background-image: url("/mic.png"); /* Path to the third icon */
-  border: 4px solid transparent;
-  background-size: 120px 120px; /* Adjust the icon size */
-  background-repeat: no-repeat;
-  background-position: center;
-}
-/* Target the paragraph inside the button when isInitial is true */
-.talk-button.initial p {
-  position: relative;
-  width: 100%;
-  padding: 5px 0px;
-  background-color: rgba(0, 0, 0, 0.9);
-  bottom: -150px;
-}
-.show-portfolio-button {
-  background-color: rgb(0, 0, 0); /* Default for initial state */
-  background-image: url("/portfolio-icon.jpg"); /* Path to the third icon */
-  background-size: 100% 100%; /* Adjust the icon size */
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 0px !important;
-}
-
-.show-portfolio-button p {
-  position: relative;
-  width: 100%;
-  padding: 5px 0px;
-  background-color: rgba(0, 0, 0, 0.9);
-  bottom: -150px;
-}
-.talk-button.active p,
-.talk-button.speaking p {
-  position: absolute;
-  bottom: 2em;
-}
-
-.talk-button.active + .show-portfolio-button,
-.talk-button.speaking + .show-portfolio-button {
-  background-color: antiquewhite;
-}
-
-/* Icon size for talk and portfolio buttons */
-.talk-button img {
-  width: 124px;
-  height: 124px;
-  border-radius: 50%; /* Circular images */
-}
-
-.show-portfolio-button:hover {
-  transform: scale(1.05); /* Slight scale-up effect */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
-}
-
-.talk-button:hover {
-  transform: scale(1.05); /* Slight scale-up effect */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
-}
-
-/* Description covering the entire button */
-.talk-button-description {
-  display: flex; /* Enable flexbox for centering text */
-  justify-content: center; /* Center text horizontally */
-  align-items: center; /* Center text vertically */
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%; /* Cover the entire button width */
-  height: 100%; /* Cover the entire button height */
-  background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent background */
-  color: #fff; /* White text */
-  font-size: 1rem; /* Font size for the description */
-  padding: 8px; /* Optional padding */
-  border-radius: 8px; /* Match the button's border radius */
-  text-align: center; /* Center text alignment */
-  opacity: 0; /* Start hidden */
-  transition: opacity 0.3s; /* Smooth fade-in effect */
-  z-index: 10; /* Ensure it appears above other content */
-}
-
-/* Show the description on hover */
-.talk-button:hover .talk-button-description {
-  opacity: 1; /* Make the paragraph visible */
-}
-/* Ensure the description is hidden when isInitial is false */
-.talk-button:not(.initial):hover .talk-button-description {
-  opacity: 0; /* Keep the description hidden on hover when isInitial is false */
-}
 /* Portfolio container styling */
 .portfolio-container {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Soft shadow */
-  padding: 5px;
   box-sizing: border-box;
   overflow-y: auto; /* Scrollable content */
   position: relative; /* Position for child elements */
+  margin-bottom: 2rem;
+  max-height: calc(100vh - 100px);
+
 }
 
 /* Close button styling */
@@ -305,62 +140,6 @@ body {
   background-color: #333; /* Darker when hovered */
 }
 
-/* Center the talk button on the screen when active */
-.talk-button.active,
-.talk-button.speaking {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -52.5%); /* Centers the button */
-  z-index: 101; /* Ensure it's on top of everything */
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Add shadow */
-}
-
-/* Instruction button styling */
-.instruction-button {
-  background-color: rgba(34, 77, 0, 0.9); /* Dark green background */
-  color: white;
-  position: absolute;
-  z-index: 101;
-  top: 10px;
-  text-align: center;
-  display: none; /* Hidden by default */
-}
-
-/* Instructions text styling */
-.instruction-button p {
-  margin-bottom: 0px; /* No margin below the text */
-}
-
-/* Show the instruction button when the talk button is active */
-.talk-button.active + .instruction-button,
-.talk-button.speaking + .instruction-button {
-  display: block; /* Make it visible */
-}
-
-/* Instructions popup styling */
-.instructions {
-  color: white !important;
-  background-color: rgba(0, 0, 0, 0.9); /* Dark background */
-  z-index: 101;
-  position: absolute;
-  top: 48.8%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Center the instructions */
-  width: 300px;
-  height: 400px;
-  padding: 5px;
-  overflow: auto; /* Scrollable content */
-}
-/* Hide the scrollbar but keep the scroll functionality */
-.instructions::-webkit-scrollbar {
-  width: 0px; /* Hide scrollbar */
-  height: 0px; /* Hide scrollbar */
-}
-.additional-button-container {
-  position: fixed;
-  bottom: 0px;
-}
 .extra-action-button {
   background-color: #007bff;
   color: white;
@@ -381,7 +160,7 @@ body {
   padding: 20px;
   text-align: center;
   position: fixed;
-  bottom: 5em;
+  bottom: 0em;
 }
 
 .contact-info p {
@@ -398,11 +177,31 @@ body {
   position: fixed;
   z-index: 1001 !important;
 }
+
+/*Scroll bar styles*/
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #333;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #000;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
 /* Responsive design for smaller screens */
 @media (min-width: 768px) {
   .talk-button,
   .show-portfolio-button {
-    font-size: 1rem; /* Smaller font size on larger screens */
+    font-size: 1rem;
     padding: 10px 15px;
   }
 
@@ -411,7 +210,7 @@ body {
   }
 
   .demo-video-container iframe {
-    height: 200px; /* Adjust iframe height */
+    height: 200px;
   }
 
   /* Make the button container row for larger screens */
