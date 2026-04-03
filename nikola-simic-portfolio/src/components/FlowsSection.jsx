@@ -15,6 +15,11 @@ const flows = [
     desc: 'Track bookings from reservation through pre-check-in, in-house stay, checkout, and follow-up — with state changes reflected across the system.',
   },
   {
+    icon: 'bi-sliders',
+    title: 'Operational Configuration',
+    desc: 'Hotel administrators configure booking rules, guest requirements, policies, and operational timing — controlling how the system behaves across all workflows.',
+  },
+  {
     icon: 'bi-people',
     title: 'Staff Onboarding',
     desc: 'Staff join through hotel-linked onboarding flows with role-based access and hotel scoping, entering the correct operational context from the start.',
