@@ -20,9 +20,9 @@ const flows = [
     desc: 'Hotel administrators configure booking rules, guest requirements, policies, and operational timing — controlling how the system behaves across all workflows.',
   },
   {
-    icon: 'bi-people',
-    title: 'Staff Onboarding',
-    desc: 'Staff join through hotel-linked onboarding flows with role-based access and hotel scoping, entering the correct operational context from the start.',
+    icon: 'bi-qr-code',
+    title: 'QR-Based Staff Onboarding',
+    desc: 'Staff scan a hotel-issued QR code and complete registration through a hotel-linked form. Accounts are created in a pending state, then reviewed and activated with hotel-scoped access.',
   },
   {
     icon: 'bi-person-badge',
