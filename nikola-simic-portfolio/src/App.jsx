@@ -14,10 +14,13 @@ const App = () => (
   <>
     <Hero />
     <FeaturedProject />
+    <hr className="section-divider" />
     <FlowsSection />
     <ArchitectureSection />
+    <hr className="section-divider" />
     <SecondaryProject />
     <AboutSection />
+    <hr className="section-divider" />
     <ContactSection />
   </>
 );

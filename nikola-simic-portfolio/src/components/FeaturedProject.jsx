@@ -26,12 +26,10 @@ const FeaturedProject = () => {
     <section id="featured-project" className="section-padding bg-section-alt">
       <div className="container">
         <div className="row justify-content-center mb-5">
-          <div className="col-lg-8 text-center">
-            <p className="section-label text-uppercase fw-semibold letter-spacing-wide mb-2">
-              Featured Project
-            </p>
-            <h2 className="display-5 fw-bold mb-3">HotelMate</h2>
-            <p className="text-muted-custom lead mx-auto" style={{ maxWidth: '620px' }}>
+          <div className="col-lg-7 text-center">
+            <p className="section-label">Featured Project</p>
+            <h2 className="section-heading display-5">HotelMate</h2>
+            <p className="section-desc lead mx-auto" style={{ maxWidth: '580px' }}>
               A multi-tenant hotel management platform built for real operations.
               Staff onboarding, room provisioning, booking flows, guest
               communication, and live dashboards — all in one system.
@@ -39,26 +37,26 @@ const FeaturedProject = () => {
           </div>
         </div>
 
-        <div className="row g-4">
+        <div className="row g-4 mb-5">
           {highlights.map((item, i) => (
             <div className="col-sm-6 col-lg-3" key={i}>
-              <div className="highlight-card h-100 p-4 rounded-4">
+              <div className="highlight-card h-100 p-4">
                 <div className="icon-wrapper mb-3">
-                  <i className={`bi ${item.icon} fs-2`} />
+                  <i className={`bi ${item.icon} fs-5`} />
                 </div>
-                <h5 className="fw-semibold mb-2">{item.title}</h5>
-                <p className="text-muted-custom small mb-0">{item.desc}</p>
+                <h6 className="card-title-sm">{item.title}</h6>
+                <p className="card-text-sm">{item.desc}</p>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-5">
+        <div className="text-center">
           <a
             href="https://github.com/nlekkerman/HotelMate"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-outline-accent btn-lg px-4"
+            className="btn btn-outline-accent px-4 py-2"
           >
             <i className="bi bi-github me-2" />
             View Repository

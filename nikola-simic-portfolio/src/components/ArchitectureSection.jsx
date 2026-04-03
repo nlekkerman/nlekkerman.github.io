@@ -26,14 +26,12 @@ const ArchitectureSection = () => {
     <section className="section-padding bg-section-alt">
       <div className="container">
         <div className="row justify-content-center mb-5">
-          <div className="col-lg-8 text-center">
-            <p className="section-label text-uppercase fw-semibold letter-spacing-wide mb-2">
-              Architecture &amp; Thinking
-            </p>
-            <h2 className="display-5 fw-bold mb-3">
+          <div className="col-lg-7 text-center">
+            <p className="section-label">Architecture &amp; Thinking</p>
+            <h2 className="section-heading display-5">
               Built with System Design in Mind
             </h2>
-            <p className="text-muted-custom lead mx-auto" style={{ maxWidth: '620px' }}>
+            <p className="section-desc lead mx-auto" style={{ maxWidth: '560px' }}>
               Not just features — a deliberate architecture. Every layer is
               designed for clarity, security, and real-time performance.
             </p>
@@ -43,12 +41,12 @@ const ArchitectureSection = () => {
         <div className="row g-4">
           {pillars.map((pillar, i) => (
             <div className="col-sm-6 col-lg-3" key={i}>
-              <div className="arch-card h-100 p-4 rounded-4 text-center">
+              <div className="arch-card h-100 p-4 text-center">
                 <div className="arch-icon-wrapper mx-auto mb-3">
-                  <i className={`bi ${pillar.icon} fs-2`} />
+                  <i className={`bi ${pillar.icon} fs-5`} />
                 </div>
-                <h5 className="fw-semibold mb-2">{pillar.title}</h5>
-                <p className="text-muted-custom small mb-0">{pillar.desc}</p>
+                <h6 className="card-title-sm">{pillar.title}</h6>
+                <p className="card-text-sm">{pillar.desc}</p>
               </div>
             </div>
           ))}

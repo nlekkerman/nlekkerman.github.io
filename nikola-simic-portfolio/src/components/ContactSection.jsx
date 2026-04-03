@@ -3,47 +3,66 @@ const ContactSection = () => {
     <section id="contact" className="section-padding">
       <div className="container">
         <div className="row justify-content-center">
-          <div className="col-lg-7 text-center">
-            <p className="section-label text-uppercase fw-semibold letter-spacing-wide mb-2">
-              Contact
+          <div className="col-lg-6 text-center mb-5">
+            <p className="section-label">Contact</p>
+            <h2 className="section-heading display-5">Let&apos;s Connect</h2>
+            <p className="section-desc lead mx-auto" style={{ maxWidth: '480px' }}>
+              Have a project in mind, a technical question, or want to discuss
+              architecture? I&apos;m always open to a good conversation.
             </p>
-            <h2 className="display-5 fw-bold mb-3">Let&apos;s Connect</h2>
-            <p className="text-muted-custom lead mb-5 mx-auto" style={{ maxWidth: '520px' }}>
-              Interested in working together, have a question about my projects,
-              or just want to talk tech? I&apos;m always open to a conversation.
-            </p>
-            <div className="d-flex flex-wrap justify-content-center gap-3">
-              <a
-                href="mailto:nlekkerman@gmail.com"
-                className="btn btn-accent btn-lg px-4 py-3"
-              >
-                <i className="bi bi-envelope me-2" />
-                Email Me
+          </div>
+        </div>
+
+        <div className="row justify-content-center">
+          <div className="col-lg-6 col-md-8">
+            <div className="contact-details-grid">
+              <a href="mailto:nlekkerman@gmail.com" className="contact-detail-item">
+                <i className="bi bi-envelope" />
+                <div>
+                  <span className="detail-label">Email</span>
+                  <span className="detail-value">nlekkerman@gmail.com</span>
+                </div>
+              </a>
+              <a href="tel:+353830945102" className="contact-detail-item">
+                <i className="bi bi-phone" />
+                <div>
+                  <span className="detail-label">Phone</span>
+                  <span className="detail-value">+353 83 094 5102</span>
+                </div>
               </a>
               <a
                 href="https://github.com/nlekkerman"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-outline-light btn-lg px-4 py-3"
+                className="contact-detail-item"
               >
-                <i className="bi bi-github me-2" />
-                GitHub
+                <i className="bi bi-github" />
+                <div>
+                  <span className="detail-label">GitHub</span>
+                  <span className="detail-value">nlekkerman</span>
+                </div>
               </a>
               <a
-                href="https://www.linkedin.com/in/nikola-simic-ns/"
+                href="https://www.linkedin.com/in/nikola-simic-674862110"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-outline-light btn-lg px-4 py-3"
+                className="contact-detail-item"
               >
-                <i className="bi bi-linkedin me-2" />
-                LinkedIn
+                <i className="bi bi-linkedin" />
+                <div>
+                  <span className="detail-label">LinkedIn</span>
+                  <span className="detail-value">Nikola Simic</span>
+                </div>
               </a>
             </div>
           </div>
         </div>
       </div>
-      <footer className="text-center text-muted-custom mt-5 pt-5 pb-3 small">
-        &copy; {new Date().getFullYear()} Nikola Simic. Built with React &amp; Bootstrap.
+
+      <footer className="site-footer mt-5">
+        <div className="container text-center">
+          &copy; {new Date().getFullYear()} Nikola Simic
+        </div>
       </footer>
     </section>
   );

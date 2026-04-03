@@ -31,14 +31,12 @@ const FlowsSection = () => {
     <section className="section-padding">
       <div className="container">
         <div className="row justify-content-center mb-5">
-          <div className="col-lg-8 text-center">
-            <p className="section-label text-uppercase fw-semibold letter-spacing-wide mb-2">
-              System Flows
-            </p>
-            <h2 className="display-5 fw-bold mb-3">How HotelMate Works</h2>
-            <p className="text-muted-custom lead mx-auto" style={{ maxWidth: '600px' }}>
+          <div className="col-lg-7 text-center">
+            <p className="section-label">System Flows</p>
+            <h2 className="section-heading display-5">How HotelMate Works</h2>
+            <p className="section-desc lead mx-auto" style={{ maxWidth: '540px' }}>
               Every major operational flow is designed, built, and connected.
-              These aren't wireframes — they're working systems.
+              These aren&apos;t wireframes — they&apos;re working systems.
             </p>
           </div>
         </div>
@@ -46,12 +44,12 @@ const FlowsSection = () => {
         <div className="row g-4 justify-content-center">
           {flows.map((flow, i) => (
             <div className="col-sm-6 col-lg-4" key={i}>
-              <div className="flow-card h-100 p-4 rounded-4">
+              <div className="flow-card h-100 p-4">
                 <div className="flow-icon-wrapper mb-3">
-                  <i className={`bi ${flow.icon} fs-3`} />
+                  <i className={`bi ${flow.icon} fs-5`} />
                 </div>
-                <h5 className="fw-semibold mb-2">{flow.title}</h5>
-                <p className="text-muted-custom small mb-0">{flow.desc}</p>
+                <h6 className="card-title-sm">{flow.title}</h6>
+                <p className="card-text-sm">{flow.desc}</p>
               </div>
             </div>
           ))}
