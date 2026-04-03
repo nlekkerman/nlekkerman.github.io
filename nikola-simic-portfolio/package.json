@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.13.1",
     "framer-motion": "^11.11.17",
     "levenshtein": "^1.0.5",
     "react": "^18.3.1",

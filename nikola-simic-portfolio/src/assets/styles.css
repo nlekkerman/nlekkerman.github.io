@@ -1,203 +1,332 @@
-html, body {
-  height: 100%; 
-  margin: 0;
-  overflow: hidden;
+/* ============================================================
+   PORTFOLIO — Custom Styles
+   Base: Bootstrap 5 + Bootstrap Icons
+   Theme: Dark, premium, modern
+   ============================================================ */
+
+/* ---------- Design Tokens ---------- */
+:root {
+  --color-bg: #0b0d11;
+  --color-bg-alt: #10131a;
+  --color-surface: #161a24;
+  --color-surface-hover: #1c2130;
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-text: #e8eaf0;
+  --color-text-muted: #8b93a7;
+  --color-accent: #6c63ff;
+  --color-accent-hover: #5a52e0;
+  --color-gradient-start: #6c63ff;
+  --color-gradient-end: #00d4ff;
+  --radius-card: 1rem;
+  --shadow-card: 0 2px 24px rgba(0, 0, 0, 0.35);
+  --shadow-card-hover: 0 8px 40px rgba(108, 99, 255, 0.12);
+  --transition-base: 0.25s ease;
+  --section-spacing: 7rem;
 }
 
-/* General styles */
-body {
-  padding-top: 70px;
-  background-color: transparent;
-  background: url("/main-background.webp") no-repeat center center;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  min-height: 100%;
- 
-}
-
-/* Main container */
-.main-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
- margin-bottom: 2em !important;
+/* ---------- Reset / Base ---------- */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  background: transparent;
-  padding-top: 70px;
- padding-bottom: 200px;
-
-}
-.about-me{
-  background-color: rgba(0, 0, 0, 0.9);
 }
 
-/* Make sure the root element takes the full width */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 #root {
   width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  overflow-x: hidden;
 }
 
-/* Portfolio container styling */
-.portfolio-container {
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Soft shadow */
-  box-sizing: border-box;
-  overflow-y: auto; /* Scrollable content */
-  position: relative; /* Position for child elements */
-  margin-bottom: 2rem;
-  max-height: calc(100vh - 100px);
-
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-/* Close button styling */
-.close-button {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  font-size: 1rem;
-  color: #888;
-  background-color: red;
-  border: none;
-  cursor: pointer;
-  transition: color 0.2s;
-  padding: 0.7em !important;
-}
-
-/* Hover effect for close button */
-.close-button:hover {
-  color: #000;
-}
-
-/* Project card styling */
-.project-card {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  border: 1px solid #ddd; /* Light border around cards */
-  border-radius: 8px;
-  padding: 15px;
-  margin-bottom: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
-  transition: box-shadow 0.2s;
-  color: white !important; /* Override color to white */
-}
-
-/* Hover effect for project cards */
-.project-card:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
-}
-
-/* Project card titles */
-.project-info h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-/* Project card descriptions */
-.project-info p {
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-/* Project card information */
-.project-info {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Styling for demo video container */
-.demo-video-container {
-  margin: 10px 0;
-}
-
-.demo-video-container iframe {
-  width: 100%;
-  height: 300px;
-  border-radius: 8px;
-  border: none;
-}
-
-/* GitHub link styling */
-.project-info a {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 15px;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.9); /* Dark background for link */
-  text-align: center;
+a {
   text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.2s;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow */
 }
 
-/* Hover effect for GitHub link */
-.project-info a:hover {
-  background-color: #333; /* Darker when hovered */
+/* ---------- Utility ---------- */
+.letter-spacing-wide {
+  letter-spacing: 0.15em;
 }
 
-.extra-action-button {
-  background-color: #007bff;
-  color: white;
+.text-muted-custom {
+  color: var(--color-text-muted) !important;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-padding {
+  padding: var(--section-spacing) 0;
+}
+
+.bg-section-alt {
+  background-color: var(--color-bg-alt);
+}
+
+.section-label {
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+/* ---------- Buttons ---------- */
+.btn-accent {
+  background: linear-gradient(135deg, var(--color-gradient-start), var(--color-accent-hover));
+  color: #fff;
   border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
+  font-weight: 600;
+  border-radius: 0.6rem;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
-.extra-action-button:hover {
-  background-color: #0056b3;
+.btn-accent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(108, 99, 255, 0.35);
+  color: #fff;
 }
 
-.footer-container {
-  background-color: rgba(0, 0, 0, 0.9);
-  color: white;
-  padding: 20px;
-  text-align: center;
-  position: fixed;
-  bottom: 0em;
+.btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--color-text);
+  font-weight: 600;
+  border-radius: 0.6rem;
+  transition: all var(--transition-base);
 }
 
-.contact-info p {
-  margin: 5px 0;
-  font-size: 16px;
-}
-/* New style for the button when instructions are visible */
-.talk-button-visible {
-  background-size: 40px 40px !important; /* Decreased background size */
-  width: 80px !important; /* Smaller button */
-  height: 120px !important; /* Smaller button */
-  top: 100px !important;
-  left: 80% !important;
-  position: fixed;
-  z-index: 1001 !important;
+.btn-outline-light:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #fff;
 }
 
-/*Scroll bar styles*/
+.btn-outline-accent {
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+  font-weight: 600;
+  border-radius: 0.6rem;
+  background: transparent;
+  transition: all var(--transition-base);
+}
+
+.btn-outline-accent:hover {
+  background-color: var(--color-accent);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(108, 99, 255, 0.3);
+}
+
+/* ---------- Hero Section ---------- */
+.hero-section {
+  background-color: var(--color-bg);
+  position: relative;
+  padding: 2rem 0;
+}
+
+.hero-bg-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(108, 99, 255, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 80% 80%, rgba(0, 212, 255, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-label {
+  color: var(--color-accent);
+  font-size: 0.85rem;
+}
+
+.hero-title {
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  color: var(--color-text-muted);
+  font-size: 1.15rem;
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-text-muted);
+  font-size: 1.4rem;
+  animation: bounce 2s infinite;
+  opacity: 0.5;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ---------- Card Bases ---------- */
+.highlight-card,
+.flow-card,
+.arch-card,
+.secondary-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.highlight-card:hover,
+.flow-card:hover,
+.arch-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(108, 99, 255, 0.2);
+}
+
+/* ---------- Icon Wrappers ---------- */
+.icon-wrapper,
+.flow-icon-wrapper,
+.arch-icon-wrapper {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, rgba(108, 99, 255, 0.15), rgba(0, 212, 255, 0.08));
+  color: var(--color-accent);
+}
+
+.arch-icon-wrapper {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+/* ---------- Tech Tags ---------- */
+.tech-tag {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  background-color: rgba(108, 99, 255, 0.1);
+  border: 1px solid rgba(108, 99, 255, 0.2);
+  border-radius: 2rem;
+  letter-spacing: 0.03em;
+  transition: all var(--transition-base);
+}
+
+.tech-tag:hover {
+  background-color: rgba(108, 99, 255, 0.18);
+  border-color: rgba(108, 99, 255, 0.4);
+}
+
+/* ---------- Secondary Project Card ---------- */
+.secondary-card {
+  border: 1px solid var(--color-border);
+  background: linear-gradient(160deg, var(--color-surface) 0%, var(--color-bg-alt) 100%);
+}
+
+/* ---------- Scrollbar ---------- */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #333;
-  border-radius: 10px;
+  background-color: var(--color-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #000;
-  border-radius: 10px;
+  background-color: #2a2f3d;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
+  background-color: #3a4050;
 }
 
-/* Responsive design for smaller screens */
+/* ---------- Selection ---------- */
+::selection {
+  background-color: rgba(108, 99, 255, 0.3);
+  color: #fff;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 991.98px) {
+  :root {
+    --section-spacing: 5rem;
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .display-5 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  :root {
+    --section-spacing: 3.5rem;
+  }
+
+  .hero-title {
+    font-size: 1.9rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .display-5 {
+    font-size: 1.7rem;
+  }
+
+  .display-6 {
+    font-size: 1.4rem;
+  }
+
+  .btn-lg {
+    padding: 0.65rem 1.2rem !important;
+    font-size: 0.9rem;
+  }
+
+  .highlight-card,
+  .flow-card,
+  .arch-card {
+    padding: 1.25rem !important;
+  }
+
+  .secondary-card {
+    padding: 2rem !important;
+  }
+}
 @media (min-width: 768px) {
   .talk-button,
   .show-portfolio-button {
