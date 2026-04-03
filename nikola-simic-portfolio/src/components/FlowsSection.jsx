@@ -1,28 +1,33 @@
 const flows = [
   {
-    icon: 'bi-houses',
-    title: 'Hotel Provisioning',
-    desc: 'Owners register a hotel, configure rooms, departments, and policies. The system scaffolds the entire operational structure automatically.',
+    icon: 'bi-globe2',
+    title: 'Public Hotel Experience',
+    desc: 'Guests interact with a configurable hotel page where each hotel controls its own content, layout, and booking entry points.',
   },
   {
-    icon: 'bi-people',
-    title: 'Staff Onboarding',
-    desc: 'Invite staff by role, assign departments and permissions. New team members are operational from day one with scoped access.',
+    icon: 'bi-journal-check',
+    title: 'Booking Entry',
+    desc: 'Guests create reservations directly through the hotel interface, with availability checks and validation handled by backend workflows.',
   },
   {
     icon: 'bi-calendar2-range',
     title: 'Booking Lifecycle',
-    desc: 'Guests search, book, and manage reservations. The system handles availability, conflicts, confirmations, and real-time status updates.',
+    desc: 'Track bookings from reservation through pre-check-in, in-house stay, checkout, and follow-up — with state changes reflected across the system.',
+  },
+  {
+    icon: 'bi-people',
+    title: 'Staff Onboarding',
+    desc: 'Staff join through hotel-linked onboarding flows with role-based access and hotel scoping, entering the correct operational context from the start.',
   },
   {
     icon: 'bi-person-badge',
     title: 'Guest Experience',
-    desc: 'From check-in to check-out — service requests, messaging, and live notifications keep the guest connected throughout their stay.',
+    desc: 'Guests access hotel-specific flows through tokenized links, with features and access adapting to booking and stay state within real booking context.',
   },
   {
     icon: 'bi-lightning-charge',
-    title: 'Realtime Operations',
-    desc: 'WebSocket events drive task assignments, housekeeping alerts, and dashboard refreshes. No polling, no delays — instant synchronization.',
+    title: 'Pusher-Powered Ops',
+    desc: 'Key staff-side flows use Pusher-driven event updates for bookings, room activity, and chat synchronization — keeping dashboards aligned.',
   },
 ];
 
