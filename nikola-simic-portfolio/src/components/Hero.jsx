@@ -8,11 +8,11 @@
             <p className="hero-label text-uppercase mb-3">
               Full-Stack Developer &middot; System Architect
             </p>
-            <h1 className="hero-title mb-4">
-              I build real-time,
-              <br />
-              <span className="text-gradient">multi-tenant platforms</span>
-            </h1>
+            <h1 className="hero-title mb-2">Nikola Simic</h1>
+            <p className="hero-headline mb-4">
+              Building real-time,{' '}
+              <span className="text-gradient">multi-tenant SaaS systems</span>
+            </p>
             <p className="hero-subtitle mx-auto mb-5" style={{ maxWidth: '560px' }}>
               Complete SaaS systems from database schema to live dashboard.
               Backend logic, real-time communication, role-based access
