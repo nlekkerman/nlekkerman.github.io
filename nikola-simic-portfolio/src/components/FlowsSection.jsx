@@ -33,7 +33,7 @@ const FlowsSection = () => {
         <div className="row justify-content-center mb-5">
           <div className="col-lg-7 text-center">
             <p className="section-label">System Flows</p>
-            <h2 className="section-heading display-5">How HotelMate Works</h2>
+            <h2 className="section-heading display-5">How HotelsMates Works</h2>
             <p className="section-desc lead mx-auto" style={{ maxWidth: '540px' }}>
               Every major operational flow is designed, built, and connected.
               These aren&apos;t wireframes — they&apos;re working systems.

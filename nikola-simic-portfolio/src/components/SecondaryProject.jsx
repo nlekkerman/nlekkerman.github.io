@@ -23,15 +23,33 @@ const SecondaryProject = () => {
                   )
                 )}
               </div>
-              <a
-                href="https://github.com/nlekkerman/ShootAR"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-outline-accent px-4 py-2"
-              >
-                <i className="bi bi-github me-2" />
-                View Repository
-              </a>
+              <div className="d-flex flex-wrap gap-3">
+                <a
+                  href="#"
+                  className="btn btn-accent px-4 py-2"
+                >
+                  <i className="bi bi-box-arrow-up-right me-2" />
+                  View Project
+                </a>
+                <a
+                  href="https://github.com/nlekkerman/shootars"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-outline-accent px-4 py-2"
+                >
+                  <i className="bi bi-github me-2" />
+                  Frontend Code
+                </a>
+                <a
+                  href="https://github.com/nlekkerman/shootars-backend"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-outline-accent px-4 py-2"
+                >
+                  <i className="bi bi-github me-2" />
+                  Backend Code
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -28,7 +28,7 @@ const FeaturedProject = () => {
         <div className="row justify-content-center mb-5">
           <div className="col-lg-7 text-center">
             <p className="section-label">Featured Project</p>
-            <h2 className="section-heading display-5">HotelMate</h2>
+            <h2 className="section-heading display-5">HotelsMates</h2>
             <p className="section-desc lead mx-auto" style={{ maxWidth: '580px' }}>
               A multi-tenant hotel management platform built for real operations.
               Staff onboarding, room provisioning, booking flows, guest
@@ -51,15 +51,31 @@ const FeaturedProject = () => {
           ))}
         </div>
 
-        <div className="text-center">
+        <div className="d-flex flex-wrap justify-content-center gap-3">
           <a
-            href="https://github.com/nlekkerman/HotelMate"
+            href="#"
+            className="btn btn-accent px-4 py-2"
+          >
+            <i className="bi bi-box-arrow-up-right me-2" />
+            Live Demo
+          </a>
+          <a
+            href="https://github.com/nlekkerman/HotelMateFrontend"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-outline-accent px-4 py-2"
           >
             <i className="bi bi-github me-2" />
-            View Repository
+            Frontend Code
+          </a>
+          <a
+            href="https://github.com/nlekkerman/HotelMateBackend"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-outline-accent px-4 py-2"
+          >
+            <i className="bi bi-github me-2" />
+            Backend Code
           </a>
         </div>
       </div>
