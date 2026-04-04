@@ -373,6 +373,150 @@ a {
   font-size: 0.8rem;
 }
 
+/* ---------- Featured Project (Dominant) ---------- */
+.featured-project-section {
+  position: relative;
+}
+
+.featured-title {
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.featured-tagline {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 500;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Architecture List ---------- */
+.architecture-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.architecture-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.architecture-item:last-child {
+  border-bottom: none;
+}
+
+.architecture-item .text-accent {
+  color: var(--color-accent);
+}
+
+/* ---------- Flow Steps ---------- */
+.flow-steps {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.02em;
+  color: var(--color-text) !important;
+  opacity: 0.85;
+}
+
+/* ---------- System Diagram ---------- */
+.diagram-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+.diagram-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.diagram-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.diagram-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.625rem;
+  border: 1px solid var(--color-border);
+  min-width: 130px;
+  text-align: center;
+  transition: border-color var(--transition-base);
+}
+
+.diagram-node:hover {
+  border-color: var(--color-border-hover);
+}
+
+.diagram-node i {
+  font-size: 1.25rem;
+  color: var(--color-accent);
+}
+
+.diagram-node span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.diagram-node small {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  line-height: 1.3;
+}
+
+.node-entry {
+  background-color: rgba(99, 102, 241, 0.06);
+}
+
+.node-layer {
+  background-color: rgba(56, 189, 248, 0.06);
+  flex: 1;
+  max-width: 360px;
+}
+
+.node-core {
+  background-color: rgba(99, 102, 241, 0.1);
+  flex: 1;
+  max-width: 360px;
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+.node-service {
+  background-color: rgba(255, 255, 255, 0.02);
+  flex: 1;
+  max-width: 180px;
+}
+
+.diagram-connector {
+  display: flex;
+  gap: 2rem;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  opacity: 0.4;
+  padding: 0.25rem 0;
+}
+
+.diagram-connector.triple {
+  gap: 4rem;
+}
+
 /* ---------- Scrollbar ---------- */
 ::-webkit-scrollbar {
   width: 6px;

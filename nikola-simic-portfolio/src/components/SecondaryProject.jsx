@@ -7,15 +7,17 @@ const SecondaryProject = () => {
             <div className="secondary-card p-4 p-md-5">
               <p className="section-label">Other Work</p>
               <h2 className="section-heading h3">ShootAR</h2>
+              <p className="section-desc mb-2" style={{ maxWidth: '520px' }}>
+                Web-based AR system with real-time interaction, spatial
+                tracking, and 3D gameplay.
+              </p>
               <p className="section-desc mb-4" style={{ maxWidth: '520px' }}>
-                An augmented reality Android game built with Unity and C#.
-                Players interact with real-world environments through their
-                camera, engaging targets with physics-based projectile
-                mechanics. Combines AR Foundation, spatial mapping, and
-                responsive UI for an immersive mobile experience.
+                Core mechanics and interaction systems are implemented, with
+                initial levels developed and ongoing expansion focused on
+                gameplay depth and progression.
               </p>
               <div className="d-flex flex-wrap gap-2 mb-4">
-                {['Unity', 'C#', 'AR Foundation', 'Android', 'Mobile Game'].map(
+                {['React', 'A-Frame', 'Three.js', 'WebXR'].map(
                   (tag) => (
                     <span className="tech-tag" key={tag}>
                       {tag}

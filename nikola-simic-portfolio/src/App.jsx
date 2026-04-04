@@ -4,6 +4,7 @@ import './assets/styles.css';
 
 import Hero from './components/Hero';
 import FeaturedProject from './components/FeaturedProject';
+import SystemDiagram from './components/SystemDiagram';
 import FlowsSection from './components/FlowsSection';
 import ArchitectureSection from './components/ArchitectureSection';
 import SecondaryProject from './components/SecondaryProject';
@@ -14,6 +15,7 @@ const App = () => (
   <>
     <Hero />
     <FeaturedProject />
+    <SystemDiagram />
     <hr className="section-divider" />
     <FlowsSection />
     <ArchitectureSection />

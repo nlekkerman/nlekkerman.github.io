@@ -1,38 +1,39 @@
 ﻿const highlights = [
   {
     icon: 'bi-building',
-    title: 'Multi-Tenant SaaS',
-    desc: 'Each hotel operates in complete isolation — own data, own staff, own config. One platform, infinite tenants.',
+    title: 'Multi-Tenant Isolation',
+    desc: 'Each hotel operates in its own scoped environment — data, staff, config, and workflows fully isolated.',
   },
   {
     icon: 'bi-broadcast',
-    title: 'Real-Time Operations',
-    desc: 'WebSocket-driven updates across dashboards. Staff, managers, and guests see changes the moment they happen.',
+    title: 'Live Operational State',
+    desc: 'Bookings, rooms, and staff activity update instantly across dashboards using event-driven architecture.',
   },
   {
     icon: 'bi-shield-lock',
     title: 'Role-Based Access',
-    desc: 'Granular permissions per role — owner, manager, receptionist, housekeeper. Every action is scoped and secured.',
+    desc: 'Granular permissions per role — owner, manager, receptionist, housekeeper. Every action scoped and secured.',
   },
   {
     icon: 'bi-calendar-check',
     title: 'Full Booking Lifecycle',
-    desc: 'From reservation to check-out, every step is tracked, validated, and reflected in real-time dashboards.',
+    desc: 'Reservation → Pre-check-in → In-house → Checkout → Post-stay. Every state tracked and validated.',
   },
 ];
 
 const FeaturedProject = () => {
   return (
-    <section id="featured-project" className="section-padding bg-section-alt">
+    <section id="featured-project" className="featured-project-section section-padding bg-section-alt">
       <div className="container">
         <div className="row justify-content-center mb-5">
-          <div className="col-lg-7 text-center">
+          <div className="col-lg-8 text-center">
             <p className="section-label">Featured Project</p>
-            <h2 className="section-heading display-5">HotelsMates</h2>
-            <p className="section-desc lead mx-auto" style={{ maxWidth: '580px' }}>
-              A multi-tenant hotel management platform built for real operations.
-              Staff onboarding, room provisioning, booking flows, guest
-              communication, and live dashboards — all in one system.
+            <h2 className="featured-title display-4 fw-bold mb-3">HotelsMates</h2>
+            <p className="featured-tagline mb-2">
+              Multi-tenant hospitality platform designed for real operations.
+            </p>
+            <p className="section-desc lead mx-auto" style={{ maxWidth: '540px' }}>
+              Staff onboarding. Booking lifecycle. Guest communication. Live dashboards.
             </p>
           </div>
         </div>

@@ -6,17 +6,17 @@
         <div className="row justify-content-center">
           <div className="col-lg-9 col-xl-7 text-center">
             <p className="hero-label text-uppercase mb-3">
-              Full-Stack Developer &middot; System Architect
+              Full-Stack Engineer
             </p>
             <h1 className="hero-title mb-2">Nikola Simic</h1>
             <p className="hero-headline mb-4">
-              Building real-time,{' '}
+              Building{' '}
               <span className="text-gradient">multi-tenant SaaS systems</span>
             </p>
             <p className="hero-subtitle mx-auto mb-5" style={{ maxWidth: '560px' }}>
-              Complete SaaS systems from database schema to live dashboard.
-              Backend logic, real-time communication, role-based access
-              — end to end.
+              From database design to real-time dashboards — I build
+              system-driven applications with RBAC, event-driven workflows,
+              and clean backend/frontend contracts.
             </p>
             <div className="d-flex flex-wrap justify-content-center gap-3">
               <a href="#featured-project" className="btn btn-accent btn-lg px-4 py-2">
