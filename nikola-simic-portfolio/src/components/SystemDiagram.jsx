@@ -1,3 +1,54 @@
+const layers = [
+  {
+    icon: 'bi-building-add',
+    label: 'Platform',
+    desc: 'Creates hotel (tenant) and assigns admin',
+    style: 'node-entry',
+  },
+  {
+    icon: 'bi-building',
+    label: 'Hotel (Tenant)',
+    desc: 'Isolated data, staff, configuration, and workflows',
+    style: 'node-entry',
+  },
+  {
+    icon: 'bi-people',
+    label: 'Actors',
+    desc: 'Guest (token-based) · Staff (role-based) · Admin (config & control)',
+    style: 'node-entry',
+  },
+  {
+    icon: 'bi-window',
+    label: 'Frontend',
+    desc: 'React — hotel-scoped routing, role-aware UI, realtime updates',
+    style: 'node-layer',
+  },
+  {
+    icon: 'bi-hdd-rack',
+    label: 'Backend',
+    desc: 'Django REST API — RBAC, hotel scoping, business logic, lifecycle management',
+    style: 'node-core',
+  },
+  {
+    icon: 'bi-database',
+    label: 'Data',
+    desc: 'PostgreSQL — tenant-isolated data per hotel',
+    style: 'node-service',
+  },
+  {
+    icon: 'bi-broadcast',
+    label: 'Realtime',
+    desc: 'Pusher — event-driven sync across dashboards and chat',
+    style: 'node-service',
+  },
+  {
+    icon: 'bi-key',
+    label: 'Identity',
+    desc: 'Token-based access — guest tokens, staff authentication',
+    style: 'node-service',
+  },
+];
+
 const SystemDiagram = () => {
   return (
     <section className="section-padding">
@@ -13,72 +64,22 @@ const SystemDiagram = () => {
           <div className="col-lg-10">
             <div className="diagram-card p-4 p-md-5">
               <div className="diagram-flow">
-                {/* Row 1: Entry Points */}
-                <div className="diagram-row">
-                  <div className="diagram-node node-entry">
-                    <i className="bi bi-person" />
-                    <span>Guest</span>
+                {layers.map((layer, i) => (
+                  <div key={layer.label}>
+                    <div className="diagram-row">
+                      <div className={`diagram-node ${layer.style}`}>
+                        <i className={`bi ${layer.icon}`} />
+                        <span>{layer.label}</span>
+                        <small>{layer.desc}</small>
+                      </div>
+                    </div>
+                    {i < layers.length - 1 && (
+                      <div className="diagram-connector">
+                        <i className="bi bi-arrow-down" />
+                      </div>
+                    )}
                   </div>
-                  <div className="diagram-node node-entry">
-                    <i className="bi bi-people" />
-                    <span>Staff</span>
-                  </div>
-                  <div className="diagram-node node-entry">
-                    <i className="bi bi-gear" />
-                    <span>Admin</span>
-                  </div>
-                </div>
-
-                <div className="diagram-connector">
-                  <i className="bi bi-arrow-down" />
-                </div>
-
-                {/* Row 2: Frontend */}
-                <div className="diagram-row">
-                  <div className="diagram-node node-layer">
-                    <i className="bi bi-window" />
-                    <span>React Frontend</span>
-                    <small>Role-aware routing &middot; Real-time UI</small>
-                  </div>
-                </div>
-
-                <div className="diagram-connector">
-                  <i className="bi bi-arrow-down-up" />
-                </div>
-
-                {/* Row 3: API Layer */}
-                <div className="diagram-row">
-                  <div className="diagram-node node-core">
-                    <i className="bi bi-hdd-rack" />
-                    <span>Django REST API</span>
-                    <small>RBAC &middot; Hotel scoping &middot; Business logic</small>
-                  </div>
-                </div>
-
-                <div className="diagram-connector triple">
-                  <i className="bi bi-arrow-down" />
-                  <i className="bi bi-arrow-down" />
-                  <i className="bi bi-arrow-down" />
-                </div>
-
-                {/* Row 4: Services */}
-                <div className="diagram-row">
-                  <div className="diagram-node node-service">
-                    <i className="bi bi-database" />
-                    <span>PostgreSQL</span>
-                    <small>Multi-tenant data</small>
-                  </div>
-                  <div className="diagram-node node-service">
-                    <i className="bi bi-broadcast" />
-                    <span>Pusher</span>
-                    <small>Event-driven sync</small>
-                  </div>
-                  <div className="diagram-node node-service">
-                    <i className="bi bi-key" />
-                    <span>Token Auth</span>
-                    <small>Guest &amp; staff identity</small>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
