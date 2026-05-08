@@ -2,29 +2,30 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './assets/styles.css';
 
-import Hero from './components/Hero';
-import FeaturedProject from './components/FeaturedProject';
-import SystemDiagram from './components/SystemDiagram';
-import FlowsSection from './components/FlowsSection';
-import ArchitectureSection from './components/ArchitectureSection';
-import SecondaryProject from './components/SecondaryProject';
-import AboutSection from './components/AboutSection';
-import ContactSection from './components/ContactSection';
+import { Routes, Route, Navigate } from 'react-router-dom';
+
+import Layout from './components/Layout';
+import HomePage from './pages/HomePage';
+import HotelMatesPage from './pages/HotelMatesPage';
+import RbacPage from './pages/RbacPage';
+import ArchitecturePage from './pages/ArchitecturePage';
+import AboutPage from './pages/AboutPage';
+import DemoAccessPage from './pages/DemoAccessPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 const App = () => (
-  <>
-    <Hero />
-    <FeaturedProject />
-    <SystemDiagram />
-    <hr className="section-divider" />
-    <FlowsSection />
-    <ArchitectureSection />
-    <hr className="section-divider" />
-    <SecondaryProject />
-    <AboutSection />
-    <hr className="section-divider" />
-    <ContactSection />
-  </>
+  <Routes>
+    <Route element={<Layout />}>
+      <Route index element={<HomePage />} />
+      <Route path="/hotelmates" element={<HotelMatesPage />} />
+      <Route path="/hotelmates/rbac" element={<RbacPage />} />
+      <Route path="/hotelmates/architecture" element={<ArchitecturePage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/contact" element={<Navigate to="/about" replace />} />
+      <Route path="/demo-access" element={<DemoAccessPage />} />
+      <Route path="*" element={<NotFoundPage />} />
+    </Route>
+  </Routes>
 );
 
 export default App;
