@@ -61,9 +61,14 @@ const HomePage = () => (
           <CTAButton to="/hotelmates/rbac" variant="ghost" icon="bi-grid-3x3-gap">
             Explore RBAC Matrix
           </CTAButton>
-          <span className="cc-coming-soon cc-coming-soon-block">
-            <i className="bi bi-camera-video" /> Video walkthrough coming soon
-          </span>
+          <a
+            href="https://youtu.be/AKHUMWV4O6U"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cc-btn cc-btn-ghost"
+          >
+            <i className="bi bi-camera-video me-2" /> Demo Video
+          </a>
         </div>
 
         <div className="cc-hero-secondary">

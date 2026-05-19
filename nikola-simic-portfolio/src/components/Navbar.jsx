@@ -21,7 +21,7 @@ const Navbar = () => {
     <nav className="cc-navbar">
       <div className="container d-flex align-items-center justify-content-between">
         <Link to="/" className="cc-brand">
-          <span className="cc-brand-mark">NS</span>
+          <img src="/portfolio-profile-image.png" alt="Nikola Simic" className="cc-brand-mark" />
           <span className="cc-brand-text">Nikola Simic</span>
         </Link>
 

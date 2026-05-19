@@ -682,15 +682,10 @@ body {
 .cc-brand-mark {
   width: 2rem;
   height: 2rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 8px;
-  background: linear-gradient(135deg, var(--cc-accent), var(--cc-accent-2));
-  color: #fff;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
 }
 
 .cc-brand-text {
