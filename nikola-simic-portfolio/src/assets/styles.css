@@ -1618,3 +1618,24 @@ body {
   padding: 0.05rem 0.4rem;
   border-radius: 6px;
 }
+
+
+/* Coming soon notice for demo/video links */
+.cc-coming-soon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.85rem;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.82rem;
+  color: #fde68a;
+  background: rgba(251, 191, 36, 0.08);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  border-radius: 999px;
+  font-weight: 500;
+}
+.cc-coming-soon i { color: #fbbf24; }
+.cc-coming-soon-block {
+  width: 100%;
+  margin-top: 0.85rem;
+}

@@ -82,6 +82,14 @@ const HotelMatesPage = () => (
       >
         <i className="bi bi-github me-2" /> Frontend
       </a>
+      <a
+        href="https://youtu.be/AKHUMWV4O6U"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="cc-btn cc-btn-ghost"
+      >
+        <i className="bi bi-camera-video me-2" /> Demo Video
+      </a>
     </PageHero>
 
     <section className="cc-section">

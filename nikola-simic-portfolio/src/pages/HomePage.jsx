@@ -61,6 +61,9 @@ const HomePage = () => (
           <CTAButton to="/hotelmates/rbac" variant="ghost" icon="bi-grid-3x3-gap">
             Explore RBAC Matrix
           </CTAButton>
+          <span className="cc-coming-soon cc-coming-soon-block">
+            <i className="bi bi-camera-video" /> Video walkthrough coming soon
+          </span>
         </div>
 
         <div className="cc-hero-secondary">
@@ -131,6 +134,9 @@ const HomePage = () => (
             <Link to="/hotelmates/architecture" className="cc-btn cc-btn-ghost">
               See Architecture
             </Link>
+            <span className="cc-coming-soon cc-coming-soon-block">
+              <i className="bi bi-camera-video" /> Video walkthrough coming soon
+            </span>
           </div>
         </div>
       </div>

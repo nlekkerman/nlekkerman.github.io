@@ -142,6 +142,9 @@ const RbacPage = () => {
         >
           <i className="bi bi-box-arrow-up-right me-2" /> Test Live RBAC Demo
         </a>
+        <span className="cc-coming-soon cc-coming-soon-block">
+          <i className="bi bi-camera-video" /> Video walkthrough coming soon
+        </span>
       </PageHero>
 
       <section className="cc-section">

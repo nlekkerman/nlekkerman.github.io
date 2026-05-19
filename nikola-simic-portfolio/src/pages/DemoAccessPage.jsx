@@ -99,6 +99,9 @@ const DemoAccessPage = () => (
             >
               <i className="bi bi-box-arrow-up-right me-2" /> Launch Live Demo
             </a>
+            <p className="cc-coming-soon cc-coming-soon-block">
+              <i className="bi bi-camera-video" /> Video walkthrough coming soon
+            </p>
             <p className="cc-card-foot">
               The same password is used across all demo personas to keep
               walkthroughs simple. It grants no production access.
